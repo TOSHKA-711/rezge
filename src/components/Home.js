@@ -9,11 +9,9 @@ import SearchForm from "./SearchForm";
 import Footer from "./Footer";
 import Subscribe from "./Subscribe";
 import HomeIcons from "./HomeIcons";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  const handleOpenSubscribe =()=>{
-    window.open("./Register" , "_self");
-  }
   return (
     <>
       <div className="home">
@@ -22,21 +20,21 @@ const Home = () => {
             <img src={homeImg}></img>
             <div className="layer"></div>
           </div>
-          {/* <div className="home-sec-img">
-            <img src={homeSecImg}></img>
-        </div> */}
+
           <div className="home-text">
             <h1>رزقي للزواج الإسلامي</h1>
             <h3> الخطوة الاولى نحو حياة مستقرة</h3>
-            <Button variant="contained" className="home-btn" onClick={handleOpenSubscribe}>
-              أشتراك
-            </Button>
+            <Link to="/register">
+              <Button variant="contained" className="home-btn">
+               اشتراك
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
       <About />
       <SearchForm />
-      <HomeIcons/>
+      <HomeIcons />
       <Subscribe />
     </>
   );

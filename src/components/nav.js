@@ -4,6 +4,7 @@ import logo from "../imgs/WhatsApp_Image_2024-05-31_at_23.31.25_bb301489-removeb
 import Button from "@mui/material/Button";
 import { FaXmark } from "react-icons/fa6";
 import { FaBarsStaggered } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,23 +14,12 @@ const Nav = () => {
   };
 
 
-  const handleOpenLogin =()=>{
-    window.open("./Login" , "_self");
-  }
-  const handleOpenSubscribe =()=>{
-    window.open("./Register" , "_self");
-  }
-  const handleOpenHome =()=>{
-    window.open("./" , "_self");
-  }
-
   return (
     <nav className="nav">
       <div className="nav-bar">
         <div className="container">
           <div className="nav-links">
-            <a onClick={handleOpenHome}>الرئيسية</a>
- 
+            <Link to="/">الرئيسية</Link>
           </div>
 
           <div className="logo">
@@ -45,19 +35,21 @@ const Nav = () => {
           </div>
 
           <div className="nav-btns">
-            <a href="#">
-              <Button variant="contained" className="nav-btn" onClick={handleOpenLogin}>
+            <Link to="/login">
+              <Button variant="contained" className="nav-btn">
                 دخول
               </Button>
-            </a>
-            <a href="#">
-              <button className="about-btn" onClick={handleOpenSubscribe}>أشتراك</button>
-            </a>
+            </Link>
+            <Link to="/register">
+              <button className="about-btn">أشتراك</button>
+            </Link>
           </div>
         </div>
 
         <div className={`nav-toggle-layer ${isMenuOpen ? "open" : ""}`}>
-        <a onClick={handleOpenHome}>الرئيسية</a>
+          <Link to="/">
+            <a>الرئيسية</a>
+          </Link>
         </div>
       </div>
     </nav>

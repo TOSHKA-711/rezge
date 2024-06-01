@@ -1,10 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./style/Subscribe.css";
 
 const Subscribe = () => {
-  const handleOpenSubscribe =()=>{
-    window.open("./Register" , "_self");
-  }
   return (
     <div className="subscribe">
       <div className="overlay">
@@ -18,10 +16,12 @@ const Subscribe = () => {
             وفقًا للقيم والمعايير الإسلامية.
           </p>
           <div className="overlay__btns">
-            <button className="overlay_btn overlay_btn--colors" onClick={handleOpenSubscribe}>
-              <span>اشترك الان</span>
-              <span className="overlay__btn-emoji">✔</span>
-            </button>
+            <Link to="/register">
+              <button className="overlay_btn overlay_btn--colors">
+                <span>اشترك الان</span>
+                <span className="overlay__btn-emoji">✔</span>
+              </button>
+            </Link>
           </div>
         </div>
       </div>
