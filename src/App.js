@@ -1,5 +1,4 @@
 import "./App.css";
-import About from "./components/About";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/nav";
@@ -15,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Nav />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" exact index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/registerHus" element={<RegisterHus />} />
