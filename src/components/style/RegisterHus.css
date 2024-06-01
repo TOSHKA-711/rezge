@@ -1,0 +1,133 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+.register-hus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9rem 0 4rem;
+}
+
+.register-hus .container {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  gap: 2rem;
+}
+.register-hus .container .title {
+  color: var(--main-color);
+  font-size: 2.5rem;
+}
+.register-hus .container .form {
+  width: 60%;
+  padding: 3rem 10px 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0rem;
+  background: rgba(255, 255, 255, 0.375);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.register-hus .container .form .form-child {
+  width: 100%;
+  position: relative;
+  direction: rtl;
+  padding: 3rem 10px 2.5rem;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem 3rem;
+}
+.register-hus .container .form .form-child .form-title {
+  font-size: 20px;
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: var(--main-color);
+}
+
+.register-hus .container .form .about-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  padding: 10px 25px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.register-hus .container .form .about-btn:hover {
+  background: none;
+  color: var(--main-color);
+
+}
+
+/* -------------- text field ------------------ */
+.input {
+  direction: rtl;
+  width: 45%;
+  /* font-size: 200px; */
+}
+.input2 {
+  direction: rtl;
+  width: 100%;
+  /* font-size: 200px; */
+}
+.css-e4w4as-MuiFormLabel-root-MuiInputLabel-root {
+  color: rgba(0, 0, 0, 0.6);
+  letter-spacing: 0.00938em;
+  padding: 0;
+  position: absolute;
+  right: 25px;
+  top: 0;
+}
+.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+
+    right: 25px;
+    top: 0;
+  
+}
+/* --------------- select ----------------- */
+.css-1869usk-MuiFormControl-root {
+  min-width: 0;
+  padding: 0;
+  margin: 8px;
+  min-width: 120px;
+  width: 42%;
+}
+
+label.select-label {
+  margin-right: 20px;
+}
+
+
+/* -------------- media ---------------- */
+
+@media screen and (max-width:1200px) {
+    .register-hus .container .form {
+        width: 80%;
+      }
+}
+@media screen and (max-width:750px) {
+    .register-hus .container .form {
+        width: 100%;
+      }
+}
+@media screen and (max-width:600px) {
+    .input {
+   
+        width: 90%;
+    
+      }
+}

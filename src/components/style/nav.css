@@ -1,0 +1,209 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+
+
+.nav-bar {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(30px);
+  background-color: #fff;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 17px 0px;
+  transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  box-shadow: 3px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+
+.nav-bar .container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav-toggle-layer {
+  position: absolute;
+  background-color: #000;
+  top: 81px;
+  left: 0;
+  height: 100vh;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  -webkit-transition: width 0.3s ease, opacity 0.3s ease;
+  -moz-transition: width 0.3s ease, opacity 0.3s ease;
+  -ms-transition: width 0.3s ease, opacity 0.3s ease;
+  -o-transition: width 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle-layer.open {
+  width: 50vw;
+  opacity: 0.6;
+}
+.nav-toggle-layer a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--main-color);
+}
+.nav-toggle-layer a:hover {
+  color: var(--main-color);
+}
+
+.nav-toggle-layer a .about-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--main-color);
+  border: 2px solid #1940ae;
+  padding: 10px 25px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.nav-toggle-layer a .about-btn:hover {
+  background: none;
+  color: #fff;
+  border: 2px solid #fff;
+  /* background: #fff;
+      color: #1940ae; */
+}
+
+.nav-bar .container .logo {
+  width: 10rem;
+}
+.nav-bar .container .logo img {
+  width: 100%;
+}
+
+.nav-bar .container .nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  gap: 15px;
+  color: #000;
+}
+.nav-bar .container .nav-links a {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+.nav-toggle-links {
+  display: none;
+  font-size: 2rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+
+.nav-toggle-links .x-mark {
+ color: var(--main-color);
+ font-size: 2.5rem;
+}
+
+.nav-bar .container .nav-links a:hover {
+  color: var(--second-color);
+}
+.nav-bar .container .nav-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 29px;
+  gap: 14px;
+  font-weight: 500;
+  color: var(--hover-color);
+}
+
+.nav-bar .container .nav-btns a i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+.nav-number {
+  color: #fff;
+}
+.nav-bar .container .nav-btns a .nav-phone {
+  display: none;
+  font-size: 22px;
+}
+
+.nav-bar .container .nav-btns a .about-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  padding: 10px 30px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav-bar .container .nav-btns a .nav-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--main-color);
+  background: none;
+  border: 2px solid var(--main-color);
+  padding: 4px 30px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+}
+.nav-bar .container .nav-btns a .nav-btn:hover {
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  color: #fff;
+}
+.nav-bar .container .nav-btns a .about-btn:hover {
+  background: none;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+  .nav-bar .container .nav-links {
+    display: none;
+  }
+
+  .nav-bar .container .nav-btns a .about-btn {
+    display: none;
+  }
+  .nav-toggle-links {
+    display: flex;
+  }
+}
+@media screen and (max-width: 450px) {
+  .nav-bar .container .logo {
+    width: 30vw;
+  }
+}
+
+/* end nav bar  */

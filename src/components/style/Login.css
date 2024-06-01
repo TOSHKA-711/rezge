@@ -1,0 +1,144 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+.card {
+  width: 190px;
+  height: 254px;
+  background: #f4f6fb;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+}
+
+.form {
+  padding: 25px;
+}
+
+.form input{
+ width: 90%;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+}
+
+.card svg {
+  color: var(--main-color);
+  margin-bottom: 20px;
+  margin-right: 5px;
+}
+
+.form_heading {
+  padding-bottom: 20px;
+  font-size: 21px;
+  color: var(--main-color);
+}
+
+.field {
+  padding-bottom: 10px;
+}
+
+.input {
+  border-radius: 5px;
+  background-color: #e9e9f7;
+  padding: 5px;
+  width: 100%;
+  color: #7a7ab3;
+  border: 1px solid #dadaf7;
+}
+
+.input:focus-visible {
+  outline: 1px solid #aeaed6;
+}
+
+.input::placeholder {
+  color: var(--second-color);
+}
+
+.login label {
+  color: var(--main-color);
+  font-size: 14px;
+  display: block;
+  padding-bottom: 4px;
+}
+
+.login button {
+  background-color: var(--main-color);
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 7px 12px;
+  height: auto;
+  font-weight: 500;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.login button:hover {
+  background-color: var(--second-color);
+}
+
+.login {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9rem 0rem 4rem;
+}
+
+.form {
+  padding: 25px 4rem 25px 4rem;
+}
+.card {
+  width: 40%;
+  height: unset;
+  background: #f4f6fb;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+  direction: rtl;
+}
+
+.input {
+  border-radius: 5px;
+  background-color: #e9e9f7;
+  padding: 5px;
+  width: 100%;
+  color: #7a7ab3;
+  border: 1px solid #dadaf7;
+  font-size: 18px;
+  outline: none;
+}
+
+.login button {
+    background-color: var(--main-color);
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 8px 18px;
+    height: auto;
+    font-weight: 500;
+    color: white;
+    border: none;
+}
+
+
+@media screen and (max-width:950px) {
+  .card {
+    width:70%;
+  }
+}
+@media screen and (max-width:520px) {
+  .card {
+    width:80%;
+
+  }
+  .input {
+
+    font-size: 16px;
+
+  }
+}

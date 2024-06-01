@@ -1,0 +1,81 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+
+body{
+    padding: 0;
+}
+.register {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 9rem 0 4rem;
+}
+.register .child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  cursor: pointer;
+  color: var(--main-color);
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.6s;
+  border: 2px solid var(--main-color);
+  padding: 17px;
+  border-radius: 25px;
+}
+.register .child img {
+  width: 100%;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.6s;
+}
+.register .child:hover img {
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -moz-transform: scale(.95);
+  -ms-transform: scale(.95);
+  -o-transform: scale(.95);
+}
+
+.man-img,
+.women-img {
+  width: 20rem;
+}
+
+@media screen and (max-width:845px) {
+    .register .child {
+        width: 30%;
+      }
+    .register .child h2{
+        font-size: 100%;
+      }
+      .register {
+        gap: 3vw;
+       
+      }
+}
+@media screen and (max-width:490px) {
+    .register .child {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    .register .child h2{
+        width: 100%;
+      }
+      .register {
+        flex-direction: column;
+       
+      }
+}
