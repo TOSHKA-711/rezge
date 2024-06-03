@@ -6,9 +6,10 @@ import Select from "@mui/material/Select";
 import FormControl from "@mui/material/FormControl"; // Added import for FormControl
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
-
+import { useTranslation } from 'react-i18next';
 const minDistance = 10;
 const SearchForm = () => {
+  const { t, i18n } = useTranslation();
   const [active, setActive] = useState(true);
   const [countries, setCountries] = useState([]);
   const [nationality, setNationality] = React.useState("");
@@ -61,18 +62,18 @@ const SearchForm = () => {
             className={`second-btn ${!active && "active"}`}
             onClick={handleActive}
           >
-            ابحث عن زوجة
+               {t('home.searchForm.btn2')}
           </button>
           <button
             className={`first-btn ${active && "active"}`}
             onClick={handleActive}
           >
-            ابحث عن زوج
+            {t('home.searchForm.btn1')}
           </button>
         </div>
         <div className="second">
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">الجنسية</InputLabel>
+            <InputLabel id="demo-simple-select-label"> {t('home.searchForm.labels.nationality')}</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -93,12 +94,12 @@ const SearchForm = () => {
             </Select>
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">مكان الاقامة</InputLabel>
+            <InputLabel id="demo-simple-select-label"> {t('home.searchForm.labels.Property')}</InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={Property}
-              label="مكان الاقامة"
+              label=" مكان الاقامة " 
               onChange={handleInput2Change}
             >
               {countries.map((item) => {
@@ -114,7 +115,7 @@ const SearchForm = () => {
             </Select>
           </FormControl>
           <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">الحالة </InputLabel>
+            <InputLabel id="demo-simple-select-label">{t('home.searchForm.labels.status')} </InputLabel>
             <Select
               labelId="demo-simple-select-label"
               id="demo-simple-select"
@@ -122,10 +123,10 @@ const SearchForm = () => {
               label=" الحالة"
               onChange={handleInput3Change}
             >
-              <MenuItem value={"Single"}>اعذب</MenuItem>
-              <MenuItem value={"Divorced"}>مطلق</MenuItem>
-              <MenuItem value={"Widower"}>أرمل</MenuItem>
-              <MenuItem value={"married"}>متزوج</MenuItem>
+              <MenuItem value={"Single"}>{t('home.searchForm.status-input.1')}</MenuItem>
+              <MenuItem value={"Divorced"}>{t('home.searchForm.status-input.2')}</MenuItem>
+              <MenuItem value={"Widower"}>{t('home.searchForm.status-input.3')}</MenuItem>
+              <MenuItem value={"married"}>{t('home.searchForm.status-input.4')}</MenuItem>
             </Select>
           </FormControl>
         </div>
@@ -138,11 +139,11 @@ const SearchForm = () => {
             disableSwap
             className="range"
           />
-          <h1> العمر</h1>
+          <h1> {t('home.searchForm.labels.age')}</h1>
         </div>
         <div className="submit">
           <Button variant="contained" className="form-btn">
-            تأكيد
+          {t('home.searchForm.btn')}
           </Button>
         </div>
       </div>

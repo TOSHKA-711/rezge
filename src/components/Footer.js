@@ -1,15 +1,20 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "./style/Footer.css";
 
 const Footer = () => {
+
+  const { t , i18n} = useTranslation();
+
+
   return (
     <footer id="footer">
       <div className="footer-newsletter">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6">
-              <h4> رزقي للزواج الاسلامي </h4>
-              <p>رزقي للزواج الإسلامي: نساعدك في العثور على نصفك الآخر</p>
+              <h4> {t('home.footer.footer1.title')}</h4>
+              <p>{t('home.footer.footer1.p')}</p>
             </div>
           </div>
         </div>
@@ -19,72 +24,70 @@ const Footer = () => {
         <div className="container">
           <div className="row2">
             <div className="footer-contact child">
-              <h4>قوائم الاعضاء</h4>
+              <h4> {t('home.footer.footer2.col4.7')}</h4>
               <ul>
                 <li>
-                  <a href="#">كل الراغبين في الزواج</a>
+                  <a href="#"> {t('home.footer.footer2.col4.1')}  </a>
                 </li>
                 <li>
-                  <a href="#">البحث المتقدم</a>
+                  <a href="#">{t('home.footer.footer2.col4.2')} </a>
                 </li>
                 <li>
-                  <a href="#">المتواجدون الان </a>
+                  <a href="#"> {t('home.footer.footer2.col4.3')} </a>
                 </li>
                 <li>
-                  <a href="#">الاعضاء المتميزون</a>
+                  <a href="#">{t('home.footer.footer2.col4.4')} </a>
                 </li>
                 <li>
-                  <a href="#">اعضاء جدد</a>
+                  <a href="#">{t('home.footer.footer2.col4.5')} </a>
                 </li>
                 <li>
-                  <a href="#">الحالات الصحيه</a>
+                  <a href="#">{t('home.footer.footer2.col4.6')} </a>
                 </li>
               </ul>
             </div>
 
             <div className="footer-links child">
-              <h4>من نحن</h4>
+              <h4>{t('home.footer.footer2.col3.1')} </h4>
               <ul>
                 <li>
-                  <a href="#">نبذه عنا </a>
+                  <a href="#"> {t('home.footer.footer2.col3.2')} </a>
                 </li>
                 <li>
-                  <a href="#">اتصل بنا </a>
+                  <a href="#"> {t('home.footer.footer2.col3.3')} </a>
                 </li>
                 <li>
-                  <a href="#">اشترك</a>
+                  <a href="#"> {t('home.footer.footer2.col3.4')}</a>
                 </li>
                 <li>
-                  <a href="#">تسجيل دخول </a>
+                  <a href="#"> {t('home.footer.footer2.col3.5')} </a>
                 </li>
               </ul>
             </div>
 
             <div className="footer-links child">
-              <h4> الدعم الفني</h4>
+              <h4> {t('home.footer.footer2.col2.1')}</h4>
               <ul>
                 <li>
-                  <a href="#">مساعده </a>
+                  <a href="#"> {t('home.footer.footer2.col2.2')}</a>
                 </li>
                 <li>
-                  <a href="#">الاسئله الشائعه</a>
+                  <a href="#">{t('home.footer.footer2.col2.3')} </a>
                 </li>
                 <li>
-                  <a href="#">شروط الموقع و قوانينه</a>
+                  <a href="#">  {t('home.footer.footer2.col2.4')} </a>
                 </li>
                 <li>
-                  <a href="#">سياسه الخصوصسه</a>
+                  <a href="#"> {t('home.footer.footer2.col2.5')}</a>
                 </li>
                 <li>
-                  <a href="#">سياسات ملفات</a>
+                  <a href="#"> {t('home.footer.footer2.col2.6')}</a>
                 </li>
               </ul>
             </div>
 
             <div className="footer-links child">
-              <h2>رزقي</h2>
-              <h2>للزواج الاسلامي </h2>
-              <h3>البداية المباركة لحياة سعيدة</h3>
+              <h2> {t('home.footer.footer2.col1')}</h2>
               <div className="social-links mt-3"></div>
             </div>
           </div>
@@ -94,8 +97,7 @@ const Footer = () => {
       <div className="container footer-bottom ">
         <div className="copyright">
           <p>
-            ابدأ رحلة الزواج بثقة ويقين، مع رزقي للزواج الإسلامي، حيث تلتقي
-            القلوب وتتشابك الأرواح
+          {t('home.footer.footer3')}
           </p>
         </div>
       </div>

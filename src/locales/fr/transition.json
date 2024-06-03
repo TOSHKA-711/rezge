@@ -1,0 +1,281 @@
+{
+  "nav": {
+    "subscribe": "S'abonner",
+    "login": "Se connecter",
+    "home": "Accueil"
+  },
+  "home": {
+    "home-sec": {
+      "h1": "Rizqee pour le Mariage Islamique",
+      "p": "Le premier pas vers une vie stable",
+      "sub-btn": "S'abonner"
+    },
+    "about": {
+      "title": "À Propos de Nous",
+      "p": "Rizqee pour le Mariage Islamique : Nous, chez 'Rizqee pour le Mariage Islamique', travaillons comme un outil pour aider les deux genres à se marier de manière islamique, en fournissant tous les outils nécessaires pour l'inscription, la recherche et en facilitant le processus de trouver l'autre partie avec les spécifications requises. Nous nous engageons uniquement dans le mariage islamique, et nous ne fournissons pas de services pour la connaissance, l'amitié ou tout autre type de relations. Nos politiques se caractérisent par la sérieux, l'engagement envers la charia et les termes éthiques. Notre mission est de faciliter votre chemin vers un mariage islamique facile, et de satisfaire votre désir de construire une famille heureuse basée sur les valeurs de notre religion islamique."
+    },
+    "searchForm": {
+      "btn1": "Rechercher un Mari",
+      "btn2": "Rechercher une Épouse",
+      "labels": {
+        "nationality": "Nationalité",
+        "Property": "Propriété",
+        "status": "Statut",
+        "age": "Âge"
+      },
+      "btn": "Confirmer"
+    },
+    "icons-sec": {
+      "1": "Explorez les détails du partenaire idéal à travers des profils complets",
+      "2": "Support technique dédié et passionné",
+      "3": "Expérience utilisateur fluide et facilitée",
+      "4": "Fournir une sécurité et une fiabilité absolues"
+    },
+    "subscribe": {
+      "title": "Abonnez-vous Maintenant",
+      "content": "Inscrivez-vous maintenant ! 'Rizqee pour le Mariage Islamique', le site de mariage islamique en arabe, ouvre ses portes à tous pour s'inscrire. Le site concerne exclusivement le mariage, adoptant une politique stricte conforme aux enseignements de la religion islamique. Ici, nous ne trouvons pas de place pour la connaissance ou l'amitié, mais nous vous permettons d'accéder au partenaire de vie approprié, selon les valeurs et les normes islamiques.",
+      "btn": "S'abonner Maintenant"
+    },
+    "footer": {
+      "footer1": {
+        "title": "Rizqee pour le Mariage Islamique",
+        "p": "Rizqee pour le Mariage Islamique : Nous vous aidons à trouver votre moitié"
+      },
+      "footer2": {
+        "col1": "Rizqee pour le Mariage Islamique - Le début béni d'une vie heureuse",
+        "col2": {
+          "1": "Support Technique",
+          "2": "Aide",
+          "3": "FAQs",
+          "4": "Conditions du Site",
+          "5": "Politique de Confidentialité",
+          "6": "Politiques de Cookies"
+        },
+        "col3": {
+          "1": "À Propos de Nous",
+          "2": "À Propos de Nous",
+          "3": "Contactez-Nous",
+          "4": "S'abonner",
+          "5": "Se connecter"
+        },
+        "col4": {
+          "1": "Tous les Chercheurs de Mariage",
+          "2": "Recherche Avancée",
+          "3": "Actuellement en Ligne",
+          "4": "Membres Distingués",
+          "5": "Nouveaux Membres",
+          "6": "Recherche Avancée",
+          "7": "Conditions de Santé"
+        }
+      },
+      "footer3": "Comience su viaje matrimonial con confianza y certeza, con el Matrimonio Islámico Rizqi, donde los corazones se encuentran y las almas se entrelazan."
+    }
+  },
+  "register": {
+    "card1": "S'inscrire comme Épouse",
+    "card2": "S'inscrire comme Mari"
+  },
+  "login": {
+    "title": "Connexion",
+    "lablel1": "Email",
+    "password": "Mot de passe",
+    "placeholder": "Entrez votre email"
+  },
+  "register-hus": {
+    "titles": {
+      "hus": "Inscription en tant qu'époux",
+      "wife": "Inscription en tant qu'épouse"
+    },
+    "loginData": {
+      "labels": {
+        "username": "Nom d'utilisateur",
+        "email": "Email",
+        "password": "Mot de Passe",
+        "confirmPassword": "Confirmer le Mot de Passe",
+        "submit": "Connexion"
+      }
+    },
+    "statusData": {
+      "labels": {
+        "marriageType": "Type de Mariage",
+        "familyStatus": "Statut Familial",
+        "age": "Âge",
+        "childrenCount": "Nombre d'Enfants"
+      },
+      "options": {
+        "marriageType": {
+          "first wife": "Première Épouse",
+          "second wife": "Deuxième Épouse"
+        },
+        "familyStatus": {
+          "single": "Célibataire",
+          "divorced": "Divorcé",
+          "widowed": "Veuf",
+          "married": "Marié"
+        },
+        "childrenCount": {
+          "": "",
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7,
+          "8": 8
+        }
+      }
+    },
+    "nationalityData": {
+      "labels": {
+        "residence": "Résidence",
+        "city": "Ville",
+        "countryCode": "Code du Pays",
+        "muslim": "Musulman"
+      }
+    },
+    "specifications": {
+      "labels": {
+        "weight": "Poids (kg)",
+        "height": "Taille (cm)",
+        "skinColor": "Couleur de la Peau",
+        "bodyStructure": "Structure du Corps"
+      },
+      "options": {
+        "skinColor": {
+          "white": "Blanc",
+          "light brown": "Marron Clair",
+          "tan": "Bronzé",
+          "light olive": "Olive Clair",
+          "dark olive": "Olive Foncé",
+          "black": "Noir"
+        },
+        "bodyStructure": {
+          "thin": "Mince",
+          "average": "Moyenne",
+          "athletic": "Athlétique",
+          "overweight": "Surdoué",
+          "obese": "Obèse"
+        }
+      }
+    },
+    "religiousCommitment": {
+      "labels": {
+        "religiosity": "Religiosité",
+        "prayer": "Prière",
+        "smoking": "Tabagisme",
+        "beard": "Barbe"
+      },
+      "options": {
+        "religiosity": {
+          "not religious": "Pas Religieux",
+          "somewhat religious": "Quelque peu Religieux",
+          "religious": "Religieux",
+          "very religious": "Très Religieux",
+          "no answer": "Pas de Réponse"
+        },
+        "prayer": {
+          "always pray": "Prie Toujours",
+          "pray most of the time": "Prie la Plupart du Temps",
+          "pray sometimes": "Prie Parfois",
+          "never pray": "Ne Prie Jamais",
+          "no answer": "Pas de Réponse"
+        },
+        "smoking": {
+          "yes": "Oui",
+          "no": "Non"
+        },
+        "beard": {
+          "yes": "Oui",
+          "no": "Non"
+        }
+      }
+    },
+    "health&education": {
+      "titles": {
+        "education": "Éducation",
+        "financial_status": "Statut Financier",
+        "work_field": "Domaine de Travail",
+        "job_title": "Titre du Poste",
+        "monthly_income": "Revenu Mensuel",
+        "health_status": "État de Santé"
+      },
+      "options": {
+        "education": {
+          "Intermediate Studies": "Études Intermédiaires",
+          "High School Studies": "Études Secondaires",
+          "University Studies": "Études Universitaires",
+          "Doctorate": "Doctorat",
+          "Self-Study": "Auto-Étude"
+        },
+        "financial_status": {
+          "Poor": "Pauvre",
+          "Near Average": "Moyen",
+          "Average": "Moyen",
+          "Above Average": "Supérieur à la Moyenne",
+          "Good": "Bon",
+          "Well-Off": "Aisé",
+          "Wealthy": "Riche"
+        },
+        "work_field": {
+          "Currently Unemployed": "Actuellement sans Emploi",
+          "Still Studying": "Encore en Études",
+          "Secretarial": "Secrétariat",
+          "Arts / Literature": "Arts / Littérature",
+          "Administration": "Administration",
+          "Commerce": "Commerce",
+          "Food Industry": "Industrie Alimentaire",
+          "Construction": "Construction",
+          "Law": "Droit",
+          "Medicine": "Médecine",
+          "Politics / Government": "Politique / Gouvernement",
+          "Retired": "Retraité",
+          "Marketing and Sales": "Marketing et Ventes",
+          "Self-Employed": "Indépendant",
+          "Education": "Éducation",
+          "Engineering / Science": "Ingénierie / Science",
+          "Transportation": "Transport",
+          "Computer / IT": "Informatique / TI",
+          "Other": "Autre"
+        },
+        "health_status": {
+          "Good Health": "Bonne Santé",
+          "Intellectual Disability": "Handicap Intellectuel",
+          "Physical Disability": "Handicap Physique",
+          "Depression": "Dépression",
+          "Kyphosis and Lordosis": "Cyphose et Lordose",
+          "Schizophrenia": "Schizophrénie",
+          "Internal": "Interne",
+          "Vitiligo": "Vitiligo",
+          "Visual Impairment": "Handicap Visuel",
+          "Albinism": "Albinisme",
+          "Skin Conditions": "Problèmes de Peau",
+          "Disfiguring Burns": "Brûlures Défigurantes",
+          "Diabetes": "Diabète",
+          "Hearing Impairment": "Handicap Auditif",
+          "Speech Impairment": "Trouble de la Parole",
+          "Obesity": "Obésité",
+          "Polio": "Poliomyélite",
+          "Quadriplegia": "Tétraplégie",
+          "Hemiplegia": "Hémiplégie",
+          "Psoriasis": "Psoriasis",
+          "Epilepsy": "Épilepsie",
+          "Sexual Dysfunction": "Dysfonctionnement Sexuel",
+          "Infertility": "Infertilité",
+          "Limb Loss": "Perte de Membre",
+          "Dwarfism": "Nanisme",
+          "Down Syndrome": "Syndrome de Down",
+          "Psychological": "Psychologique"
+        }
+      }
+    },
+    "aboutYou": {
+      "titles": {
+        "partner_description": "Description du Partenaire",
+        "about_you": "À Propos de Vous"
+      },
+      "labels": "Veuillez écrire sérieusement et poliment"
+    }
+  }
+}

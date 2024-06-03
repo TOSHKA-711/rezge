@@ -5,13 +5,37 @@ import Button from "@mui/material/Button";
 import { FaXmark } from "react-icons/fa6";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormHelperText from "@mui/material/FormHelperText";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { useTranslation } from 'react-i18next';
+
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [language, setLanguage] = useState("AR");
 
+
+
+  // handle toggle navbar 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+
+  // handle change language
+  const handleChangeLanguage = (event) => {
+    setLanguage(event.target.value);
+  };
+
+// handle i18n 
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+   
+  };;
 
 
   return (
@@ -19,7 +43,19 @@ const Nav = () => {
       <div className="nav-bar">
         <div className="container">
           <div className="nav-links">
-            <Link to="/">الرئيسية</Link>
+            <Link to="/">{t('nav.home')}</Link>
+            <FormControl>
+              <Select
+                value={language}
+                onChange={handleChangeLanguage}
+                displayEmpty
+              >
+                <MenuItem value=""></MenuItem>
+                <MenuItem value={"AR"} onClick={()=>changeLanguage("en")}>AR</MenuItem>
+                <MenuItem value={"EN"} onClick={()=>changeLanguage("ar")}>EN</MenuItem>
+                <MenuItem value={"FR"} onClick={()=>changeLanguage("fr")}>FR</MenuItem>
+              </Select>
+            </FormControl>
           </div>
 
           <div className="logo">
@@ -37,18 +73,21 @@ const Nav = () => {
           <div className="nav-btns">
             <Link to="/login">
               <Button variant="contained" className="nav-btn">
-                دخول
+              {t('nav.login')}
               </Button>
             </Link>
             <Link to="/register">
-              <button className="about-btn">أشتراك</button>
+              <button className="about-btn">{t('nav.subscribe')}</button>
             </Link>
           </div>
         </div>
 
         <div className={`nav-toggle-layer ${isMenuOpen ? "open" : ""}`}>
           <Link to="/">
-            <a>الرئيسية</a>
+            <a>{t('nav.home')}</a>
+          </Link>
+          <Link to="/register">
+            <button className="about-btn">{t('nav.subscribe')}</button>
           </Link>
         </div>
       </div>
@@ -58,18 +97,4 @@ const Nav = () => {
 
 export default Nav;
 
-// const handleScroll = () => {
-//   const navBar = document.querySelector(".nav");
-//   if (window.scrollY === 0) {
-//     navBar.style.backgroundColor = "#fff";
-//   } else {
-//     navBar.style.backgroundColor = "";
-//   }
-// };
 
-// useEffect(() => {
-//   window.addEventListener("scroll", handleScroll);
-//   return () => window.removeEventListener("scroll", handleScroll);
-// }, []);
-
-// const [toggleLayer, setToggleLayer] = useState(false);

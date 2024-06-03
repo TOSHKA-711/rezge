@@ -1,0 +1,289 @@
+{
+  "nav": {
+    "subscribe": "Subscribe",
+    "login": "Login",
+    "home": "Home"
+  },
+  "home": {
+    "home-sec": {
+      "h1": "Rizqee for Islamic Marriage",
+      "p": "The first step towards a stable life",
+      "sub-btn": "Subscribe"
+    },
+    "about": {
+      "title": "About Us",
+      "p": "Rizqee for Islamic Marriage: We at 'Rizqee for Islamic Marriage' work as a tool to help both genders in getting married in an Islamic way, by providing all the necessary tools for registration, search, and facilitating the process of finding the other party with the required specifications. We are committed to Islamic marriage only, and we do not provide services for acquaintance, friendship, or any other type of relationships. Our policies are characterized by seriousness, commitment to Sharia and ethical terms. Our mission is to facilitate your way towards easy Islamic marriage, and to fulfill your desire to build a happy family based on the values of our Islamic religion."
+    },
+    "searchForm": {
+      "btn1": "Search for Husband",
+      "btn2": "Search for Wife",
+      "labels": {
+        "nationality": "nationality",
+        "Property": "Property  ",
+        "status": "status",
+        "age": "age"
+      },
+      "status-input": {
+        "1": "Single",
+        "2": "Divorced",
+        "3": "Widowed",
+        "4": "Married"
+      },
+      "btn": "Confirm"
+    },
+    "icons-sec": {
+      "1": "Explore details of the ideal partner through comprehensive profiles",
+      "2": "Dedicated and passionate technical support",
+      "3": "Smooth and facilitated user experience",
+      "4": "Providing absolute security and reliability"
+    },
+    "subscribe": {
+      "title": "Subscribe Now",
+      "content": "Register now! 'Rizqee for Islamic Marriage', the Arabic Islamic marriage site, opens its doors for everyone to register. The site exclusively concerns marriage, adopting a strict policy in line with the teachings of the Islamic religion. Here, we will not find room for acquaintance or friendship, but we empower you to access the appropriate life partner, according to Islamic values and standards.",
+      "btn": "Subscribe Now"
+    },
+    "footer": {
+      "footer1": {
+        "title": "Rizqee for Islamic Marriage",
+        "p": "Rizqee for Islamic Marriage: We help you find your other half"
+      },
+      "footer2": {
+        "col1": "Rizqee for Islamic Marriage - The blessed beginning of a happy life",
+        "col2": {
+          "1": "Technical Support",
+          "2": "Help",
+          "3": "FAQs",
+          "4": "Site Terms and Conditions",
+          "5": "Privacy Policy",
+          "6": "Cookie Policies"
+        },
+        "col3": {
+          "1": "About Us",
+          "2": "About Us",
+          "3": "Contact Us",
+          "4": "Subscribe",
+          "5": "Login"
+        },
+        "col4": {
+          "1": "All Marriage Seekers",
+          "2": "Advanced Search",
+          "3": "Currently Online",
+          "4": "Distinguished Members",
+          "5": "New Members",
+          "6": "Advanced Search",
+          "7": "Health Conditions"
+        }
+      },
+      "footer3" : "Start your marriage journey with confidence and certainty, with Rizqi Islamic Marriage, where hearts meet and souls intertwine"
+
+    }
+  },
+  "register": {
+    "card1": "Register as Wife",
+    "card2": "Register as Husband"
+  },
+  "login": {
+    "title": "Login",
+    "lablel1": "Email",
+    "password": "Password",
+    "placeholder": "Enter your email",
+    "submit": "Login"
+  },
+  "register-hus": {
+    "titles": {
+      "hus": "Register as Husband",
+      "wife": "Register as Wife"
+    },
+    "loginData": {
+      "labels": {
+        "username": "Username",
+        "email": "Email",
+        "password": "Password",
+        "confirmPassword": "Confirm Password"
+      }
+    },
+    "statusData": {
+      "labels": {
+        "marriageType": "Marriage Type",
+        "familyStatus": "Family Status",
+        "age": "Age",
+        "childrenCount": "Number of Children"
+      },
+      "options": {
+        "marriageType": {
+          "first wife": "First Wife",
+          "second wife": "Second Wife"
+        },
+        "familyStatus": {
+          "single": "Single",
+          "divorced": "Divorced",
+          "widowed": "Widowed",
+          "married": "Married"
+        },
+        "childrenCount": {
+          "": "",
+          "0": 0,
+          "1": 1,
+          "2": 2,
+          "3": 3,
+          "4": 4,
+          "5": 5,
+          "6": 6,
+          "7": 7,
+          "8": 8
+        }
+      }
+    },
+    "nationalityData": {
+      "labels": {
+        "residence": "Residence",
+        "city": "City",
+        "countryCode": "Country Code",
+        "muslim": "Muslim"
+      }
+    },
+    "specifications": {
+      "labels": {
+        "weight": "Weight (kg)",
+        "height": "Height (cm)",
+        "skinColor": "Skin Color",
+        "bodyStructure": "Body Structure"
+      },
+      "options": {
+        "skinColor": {
+          "white": "White",
+          "light brown": "Light Brown",
+          "tan": "Tan",
+          "light olive": "Light Olive",
+          "dark olive": "Dark Olive",
+          "black": "Black"
+        },
+        "bodyStructure": {
+          "thin": "Thin",
+          "average": "Average",
+          "athletic": "Athletic",
+          "overweight": "Overweight",
+          "obese": "Obese"
+        }
+      }
+    },
+    "religiousCommitment": {
+      "labels": {
+        "religiosity": "Religiosity",
+        "prayer": "Prayer",
+        "smoking": "Smoking",
+        "beard": "Beard"
+      },
+      "options": {
+        "religiosity": {
+          "not religious": "Not Religious",
+          "somewhat religious": "Somewhat Religious",
+          "religious": "Religious",
+          "very religious": "Very Religious",
+          "no answer": "No Answer"
+        },
+        "prayer": {
+          "always pray": "Always Pray",
+          "pray most of the time": "Pray Most of the Time",
+          "pray sometimes": "Pray Sometimes",
+          "never pray": "Never Pray",
+          "no answer": "No Answer"
+        },
+        "smoking": {
+          "yes": "Yes",
+          "no": "No"
+        },
+        "beard": {
+          "yes": "Yes",
+          "no": "No"
+        }
+      }
+    },
+
+    "health&education": {
+      "titles": {
+        "education": "Education",
+        "financial_status": "Financial Status",
+        "work_field": "Work Field",
+        "job_title": "Job Title",
+        "monthly_income": "Monthly Income",
+        "health_status": "Health Status"
+      },
+      "options": {
+        "education": {
+          "Intermediate Studies": "Intermediate Studies",
+          "High School Studies": "High School Studies",
+          "University Studies": "University Studies",
+          "Doctorate": "Doctorate",
+          "Self-Study": "Self-Study"
+        },
+        "financial_status": {
+          "Poor": "Poor",
+          "Near Average": "Near Average",
+          "Average": "Average",
+          "Above Average": "Above Average",
+          "Good": "Good",
+          "Well-Off": "Well-Off",
+          "Wealthy": "Wealthy"
+        },
+        "work_field": {
+          "Currently Unemployed": "Currently Unemployed",
+          "Still Studying": "Still Studying",
+          "Secretarial": "Secretarial",
+          "Arts / Literature": "Arts / Literature",
+          "Administration": "Administration",
+          "Commerce": "Commerce",
+          "Food Industry": "Food Industry",
+          "Construction": "Construction",
+          "Law": "Law",
+          "Medicine": "Medicine",
+          "Politics / Government": "Politics / Government",
+          "Retired": "Retired",
+          "Marketing and Sales": "Marketing and Sales",
+          "Self-Employed": "Self-Employed",
+          "Education": "Education",
+          "Engineering / Science": "Engineering / Science",
+          "Transportation": "Transportation",
+          "Computer / IT": "Computer / IT",
+          "Other": "Other"
+        },
+        "health_status": {
+          "Good Health": "Good Health",
+          "Intellectual Disability": "Intellectual Disability",
+          "Physical Disability": "Physical Disability",
+          "Depression": "Depression",
+          "Kyphosis and Lordosis": "Kyphosis and Lordosis",
+          "Schizophrenia": "Schizophrenia",
+          "Internal": "Internal",
+          "Vitiligo": "Vitiligo",
+          "Visual Impairment": "Visual Impairment",
+          "Albinism": "Albinism",
+          "Skin Conditions": "Skin Conditions",
+          "Disfiguring Burns": "Disfiguring Burns",
+          "Diabetes": "Diabetes",
+          "Hearing Impairment": "Hearing Impairment",
+          "Speech Impairment": "Speech Impairment",
+          "Obesity": "Obesity",
+          "Polio": "Polio",
+          "Quadriplegia": "Quadriplegia",
+          "Hemiplegia": "Hemiplegia",
+          "Psoriasis": "Psoriasis",
+          "Epilepsy": "Epilepsy",
+          "Sexual Dysfunction": "Sexual Dysfunction",
+          "Infertility": "Infertility",
+          "Limb Loss": "Limb Loss",
+          "Dwarfism": "Dwarfism",
+          "Down Syndrome": "Down Syndrome",
+          "Psychological": "Psychological"
+        }
+      }
+    },
+    "aboutYou": {
+      "titles": {
+        "partner_description": "Partner Description",
+        "about_you": "About You"
+      },
+      "labels": "Please write seriously and politely"
+    }
+  }
+}

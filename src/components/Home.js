@@ -10,8 +10,11 @@ import Footer from "./Footer";
 import Subscribe from "./Subscribe";
 import HomeIcons from "./HomeIcons";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <>
       <div className="home">
@@ -22,11 +25,11 @@ const Home = () => {
           </div>
 
           <div className="home-text">
-            <h1>رزقي للزواج الإسلامي</h1>
-            <h3> الخطوة الاولى نحو حياة مستقرة</h3>
+            <h1> {t('home.home-sec.h1')} </h1>
+            <h3> {t('home.home-sec.p')} </h3>
             <Link to="/register">
               <Button variant="contained" className="home-btn">
-               اشتراك
+              {t('home.home-sec.sub-btn')} 
               </Button>
             </Link>
           </div>

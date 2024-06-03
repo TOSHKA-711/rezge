@@ -1,7 +1,9 @@
 import React from "react";
 import aboutImg from "../imgs/aboutImg.png";
-import "./style/About.css"
+import "./style/About.css";
+import { useTranslation } from 'react-i18next';
 const About = () => {
+  const { t, i18n } = useTranslation();
   return (
     <div className="about">
       <div className="container">
@@ -9,16 +11,9 @@ const About = () => {
           <img src={aboutImg}></img>
         </div>
         <div className="about-text">
-          <h1>نبذة عنا</h1>
+          <h1>   {t('home.about.title')}</h1>
           <p>
-            رزقي للزواج الإسلامي: نحن في "رزقي للزواج الإسلامي" نعمل كأداة
-            لمساعدة الجنسين على الزواج الشرعي بطريقة إسلامية، من خلال توفير جميع
-            الأدوات اللازمة لتسجيل الطلبات والبحث، وتسهيل عملية إيجاد الطرف
-            الآخر بالمواصفات المطلوبة. نحن ملتزمون بالزواج الشرعي فقط، ولا نقدم
-            خدمات للتعارف أو الصداقة أو أي نوع آخر من الزيجات. تتميز سياساتنا
-            بالجدية والالتزام بالشروط الشرعية والأخلاقية. مهمتنا هي تسهيل طريقك
-            نحو الزواج الشرعي الميسر، وتحقيق رغبتك في بناء أسرة سعيدة تستند إلى
-            قيم ديننا الإسلامي.
+          {t('home.about.p')}
           </p>
         </div>
       </div>

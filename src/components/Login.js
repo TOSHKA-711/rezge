@@ -1,10 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "./Footer";
 import Home from "./Home";
 import Nav from "./nav";
 import "./style/Login.css";
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+
 
 const Login = () => {
+  const { t, i18n } = useTranslation();
+  const [payload, setPayload] = useState({
+    email: "",
+    password: ""
+  });
+  const handleInputChange =(e)=>{
+    const {name , value} = e.target;
+
+    setPayload({
+      ...payload,
+      [name]: value,
+    })
+  }
+
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log(payload);
+    const url = "http://127.0.0.1:8000/api/auth/login";
+
+    axios
+      .post(url, payload)
+      .then((response) => {
+        console.log("Response:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+  
   return (
     <>
       <div className="login">
@@ -22,31 +54,35 @@ const Login = () => {
                 d="M4 15h2v5h12V4H6v5H4V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-6zm6-4V8l5 4-5 4v-3H2v-2h8z"
               ></path>
             </svg>
-            <h1 className="form_heading">تسجيل الدخول</h1>
+            <h1 className="form_heading"> {t('login.title')}</h1>
           </div>
           <div className="field">
-            <label htmlFor="username">البريد الالكتروني</label>
+            <label htmlFor="username"> {t('login.lablel1')}</label>
             <input
               className="input"
-              name="username"
+              name="email"
+              value={payload.email}
               type="text"
-              placeholder=" ادخل بريدك الالكتروني"
+              placeholder={t('login.placeholder')}
               id="username"
+              onChange={(e)=>handleInputChange(e)}
             />
           </div>
           <div className="field">
-            <label htmlFor="password">كلمة المرور</label>
+            <label htmlFor="password"> {t('login.password')}</label>
             <input
               className="input"
-              name="user_password"
+              name="password"
+              value={payload.password}
               type="password"
-              placeholder="كلمة المرور"
+              placeholder={t('login.password')}
               id="password"
+              onChange={(e)=>handleInputChange(e)}
             />
           </div>
           <div className="field">
-            <button className="button" type="submit">
-              الدخول
+            <button className="button" onClick={(e)=>handleSubmit(e)}>
+            {t('login.submit')}
             </button>
           </div>
         </form>
