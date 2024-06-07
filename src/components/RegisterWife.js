@@ -1,44 +1,48 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./style/RegisterHus.css";
 import TextField from "@mui/material/TextField";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import axios from "axios"
-const RegisterًWife = () => {
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+import { MyContext } from "../contextApi/MyProvider";
+const RegisterHus = () => {
+  const { t, i18n } = useTranslation();
   const [countries, setCountries] = useState([]);
+  const { selectedLanguage, setSelectedLanguage } = useContext(MyContext);
 
   const [payload, setPayload] = useState({
-    name: "",
-    nickname: "",
-    email: "",
-    phone: "",
-    password: "",
-    password_confirmation: "",
-    type_marriage: "",
-    family_status: "",
-    age: 25,
-    number_children: 1,
-    accommodation: "",
-    country_id: 57,
-    city: "",
-    weight: 100,
-    length: 180,
-    skin_color: "",
-    body_structure: "",
-    smoking: "no",
-    religiosity: "",
-    prayer: "",
-    beard: "",
-    education: "",
-    physical_situation: "",
-    work: "",
-    career: "",
-    income: "",
-    health_status: "",
-    description: "",
-    about_you: "",
+    "name": "",
+    "nickname": "",
+    "email": "",
+    "phone": "",
+    "password": "",
+    "password_confirmation": "",
+    "type_marriage": 2,
+    "family_status": 2,
+    "age": 25,
+    "number_children": 1,
+    "accommodation": "",
+    "country_id": 57,
+    "city": " ",
+    "weight": 100,
+    "length": 180,
+    "skin_color": "",
+    "body_structure": "",
+    "smoking": "",
+    "religiosity": "",
+    "prayer": "",
+    "hijab": "",     //no
+    "education": "",
+    "physical_situation": "",
+    "work": "",
+    "career": "",
+    "income": "",
+    "health_status": "",
+    "description": "",
+    "about_you": ""
   });
 
   //   handle countries api
@@ -60,29 +64,39 @@ const RegisterًWife = () => {
   };
   const handleSubmit = () => {
     console.log(payload);
-    const url = "http://127.0.0.1:8000/api/wife/register";
+    const url = "https://rezge.art-lms.net/api/wife/register";
 
     axios
       .post(url, payload)
       .then((response) => {
         console.log("Response:", response.data);
+        alert(response.data.message)
+      
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      .catch(error => {
+        if (error.response) {
+            console.error('Error response data:', error.response.data);
+         
+        } else {
+            console.error('Error message:', error.message);
+        }
+    });
   };
   return (
     <div className="register-hus">
       <div className="container">
-        <div className="title">التسجيل كزوجة</div>
+        <div className="title"> {t("register-hus.titles.wife")}</div>
         <div className="form">
           {/* ---------------------------first form----------------------------  */}
 
           <div className="login-data form-child">
-            <p className="form-title">معلومات تسجيل الدخول</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.loginData.labels.title")}
+            </p>
             <TextField
               id="filled-basic"
-              label="اسم المستخدم"
+              label={t("register-hus.loginData.labels.username")}
               variant="filled"
               className="input"
               name="name"
@@ -91,7 +105,16 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label="البريد الالكتروني"
+              label="الاسم المستعار"
+              variant="filled"
+              className="input"
+              name="nickname"
+              value={payload.nickname}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <TextField
+              id="filled-basic"
+              label={t("register-hus.loginData.labels.email")}
               variant="filled"
               className="input"
               name="email"
@@ -100,7 +123,16 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label="كلمة المرور"
+              label="رقم الهاتف"
+              variant="filled"
+              className="input"
+              name="phone"
+              value={payload.phone}
+              onChange={(e) => handleInputChange(e)}
+            />
+            <TextField
+              id="filled-basic"
+              label={t("register-hus.loginData.labels.password")}
               variant="filled"
               className="input"
               type="password"
@@ -110,7 +142,7 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label="تأكيد كلمه المرور"
+              label={t("register-hus.loginData.labels.confirmPassword")}
               variant="filled"
               className="input"
               type="password"
@@ -121,13 +153,16 @@ const RegisterًWife = () => {
           </div>
           {/* ---------------------------second form----------------------------  */}
           <div className="status-data form-child">
-            <p className="form-title">الحالة الاجتماعية</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.statusData.labels.familyStatus")}
+            </p>
             <FormControl variant="filled" className="input">
               <InputLabel
                 id="demo-simple-select-filled-label"
                 className="select-label"
               >
-                نوع الزواج
+                {t("register-hus.statusData.labels.marriageType")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -136,9 +171,20 @@ const RegisterًWife = () => {
                 name="type_marriage"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value="">{/* <em>None</em> */}</MenuItem>
-                <MenuItem value="زوجة اولى"> زوجة اولى</MenuItem>
-                <MenuItem value="زوجة ثانية"> زوجة ثانية</MenuItem>
+                <MenuItem
+                  value= {1}
+                >
+                  {" "}
+                  {t("register-hus.statusData.options.marriageType.first wife")}
+                </MenuItem>
+                <MenuItem
+                  value={2}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.statusData.options.marriageType.second wife"
+                  )}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -146,7 +192,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label"
                 className="select-label"
               >
-                الحالة الاجتماعية
+                {t("register-hus.statusData.labels.familyStatus")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -155,26 +201,38 @@ const RegisterًWife = () => {
                 name="family_status"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="عازب">عازب</MenuItem>
-                <MenuItem value="مطلق">مطلق</MenuItem>
-                <MenuItem value="أرمل">أرمل</MenuItem>
+                <MenuItem
+                  value={1}
+                >
+                  {t("register-hus.statusData.options.familyStatus.single")}
+                </MenuItem>
+                <MenuItem
+                  value={2}
+                >
+                  {t("register-hus.statusData.options.familyStatus.divorced")}
+                </MenuItem>
+                <MenuItem
+                  value={3}
+                >
+                  {t("register-hus.statusData.options.familyStatus.widowed")}
+                </MenuItem>
               </Select>
             </FormControl>
             <TextField
               id="filled-basic"
-              label=" العمر"
+              label={t("register-hus.statusData.labels.age")}
               variant="filled"
               className="input"
               value={payload.age}
               name="age"
+              onChange={(e) => handleInputChange(e)}
             />
             <FormControl variant="filled" className="input">
               <InputLabel
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                عدد الاطفال
+                {t("register-hus.statusData.labels.childrenCount")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -183,7 +241,6 @@ const RegisterًWife = () => {
                 name="number_children"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
                 <MenuItem value={0}>0</MenuItem>
                 <MenuItem value={1}>1</MenuItem>
                 <MenuItem value={2}>2</MenuItem>
@@ -199,34 +256,48 @@ const RegisterًWife = () => {
           {/* ---------------------------third form----------------------------  */}
 
           <div className="nationality-data form-child">
-            <p className="form-title"> الجنسية والاقامة </p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.nationalityData.title")}{" "}
+            </p>
             <FormControl className="input">
               <InputLabel id="demo-simple-select-label">
-                مكان الاقامة
+                {t("register-hus.nationalityData.labels.residence")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
                 value={payload.accommodation}
                 name="accommodation"
-                label="مكان الاقامة"
+                label={t("register-hus.nationalityData.labels.residence")}
                 onChange={(e) => handleInputChange(e)}
               >
-                {countries.map((item) => {
-                  return (
+                {countries.map((item) =>
+                  selectedLanguage === "AR" ? (
                     <MenuItem
                       value={item.translations.ara.common}
-                      key={item.idd.root}
+                      key={item.translations.ara.common}
                     >
                       {item.translations.ara.common}
                     </MenuItem>
-                  );
-                })}
+                  ) : selectedLanguage === "EN" ? (
+                    <MenuItem value={item.name.common} key={item.name.common}>
+                      {item.name.common}
+                    </MenuItem>
+                  ) : (
+                    <MenuItem
+                      value={item.translations.fra.common}
+                      key={item.translations.fra.common}
+                    >
+                      {item.translations.fra.common}
+                    </MenuItem>
+                  )
+                )}
               </Select>
             </FormControl>
             <TextField
               id="filled-basic"
-              label="المدينة "
+              label={t("register-hus.nationalityData.labels.city")}
               variant="filled"
               className="input"
               required
@@ -236,7 +307,7 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label=" كود المنطقة"
+              label={t("register-hus.nationalityData.labels.countryCode")}
               variant="filled"
               className="input"
               value={payload.country_id}
@@ -245,7 +316,7 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label=" مسلم "
+              label={t("register-hus.nationalityData.labels.muslim")}
               variant="filled"
               className="input"
               disabled
@@ -254,10 +325,13 @@ const RegisterًWife = () => {
           {/* ---------------------------fourth form----------------------------  */}
 
           <div className="login-data form-child">
-            <p className="form-title"> مواصفاتك</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.specifications.title")}
+            </p>
             <TextField
               id="filled-basic"
-              label="الوزن (كج) "
+              label={t("register-hus.specifications.labels.weight")}
               variant="filled"
               className="input"
               value={payload.weight}
@@ -266,7 +340,7 @@ const RegisterًWife = () => {
             />
             <TextField
               id="filled-basic"
-              label=" الطول (سم)"
+              label={t("register-hus.specifications.labels.height")}
               variant="filled"
               className="input"
               value={payload.length}
@@ -278,7 +352,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                لون البشرة
+                {t("register-hus.specifications.labels.skinColor")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -287,19 +361,51 @@ const RegisterًWife = () => {
                 name="skin_color"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="أبيض">أبيض</MenuItem>
-                <MenuItem value="حنطي مائل للبياض ">
-                  {" "}
-                  حنطي مائل للبياض{" "}
+                <MenuItem value="White">
+                  {t("register-hus.specifications.options.skinColor.white")}
                 </MenuItem>
-                <MenuItem value="حنطي مائل للسمار ">
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.skinColor.light brown"
+                  )}
+                >
                   {" "}
-                  حنطي مائل للسمار{" "}
+                  {t(
+                    "register-hus.specifications.options.skinColor.light brown"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value="أسمر فاتح "> أسمر فاتح </MenuItem>
-                <MenuItem value="أسمر غامق">أسمر غامق</MenuItem>
-                <MenuItem value="أسود">أسود</MenuItem>
+                <MenuItem
+                  value={t("register-hus.specifications.options.skinColor.tan")}
+                >
+                  {" "}
+                  {t("register-hus.specifications.options.skinColor.tan")}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.skinColor.light olive"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.specifications.options.skinColor.light olive"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.skinColor.dark olive"
+                  )}
+                >
+                  {t(
+                    "register-hus.specifications.options.skinColor.dark olive"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.skinColor.black"
+                  )}
+                >
+                  {t("register-hus.specifications.options.skinColor.black")}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -307,7 +413,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                بنية الجسم
+                {t("register-hus.specifications.labels.bodyStructure")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -316,25 +422,68 @@ const RegisterًWife = () => {
                 name="body_structure"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="نحيف/رفيع "> نحيف/رفيع </MenuItem>
-                <MenuItem value="متوسط البنيه "> متوسط البنيه </MenuItem>
-                <MenuItem value="قوام رياضي "> قوام رياضي </MenuItem>
-                <MenuItem value="سمين "> سمين </MenuItem>
-                <MenuItem value="ضخم"> ضخم </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.bodyStructure.thin"
+                  )}
+                >
+                  {" "}
+                  {t("register-hus.specifications.options.bodyStructure.thin")}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.bodyStructure.average"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.specifications.options.bodyStructure.average"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.bodyStructure.athletic"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.specifications.options.bodyStructure.athletic"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.bodyStructure.overweight"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.specifications.options.bodyStructure.overweight"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.specifications.options.bodyStructure.obese"
+                  )}
+                >
+                  {" "}
+                  {t("register-hus.specifications.options.bodyStructure.obese")}
+                </MenuItem>
               </Select>
             </FormControl>
           </div>
           {/* ---------------------------fifth form----------------------------  */}
 
           <div className="login-data form-child">
-            <p className="form-title"> الالتزام الديني</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.religiousCommitment.labels.religiosity")}
+            </p>
             <FormControl variant="filled" className="input">
               <InputLabel
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                التدين
+                {t("register-hus.religiousCommitment.labels.religiosity")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -343,12 +492,56 @@ const RegisterًWife = () => {
                 name="religiosity"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value=" غير متدين "> غير متدين </MenuItem>
-                <MenuItem value="متدين قليلا  "> متدين قليلا </MenuItem>
-                <MenuItem value="متدين  "> متدين </MenuItem>
-                <MenuItem value=" متدين كثيرا "> متدين كثيرا </MenuItem>
-                <MenuItem value="  لا اجابه "> لا اجابه </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.religiosity.not religious"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.religiosity.not religious"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.religiosity.somewhat religious"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.religiosity.somewhat religious"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.religiosity.religious"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.religiosity.religious"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.religiosity.very religious"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.religiosity.very religious"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.religiosity.no answer"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.religiosity.no answer"
+                  )}{" "}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -356,7 +549,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                الصلاة
+                {t("register-hus.religiousCommitment.labels.prayer")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -365,18 +558,56 @@ const RegisterًWife = () => {
                 name="prayer"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value=" اصلي دائما  "> اصلي دائما </MenuItem>
-                <MenuItem value=" اصلي اغلب الاوقات ">
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.prayer.always pray"
+                  )}
+                >
                   {" "}
-                  اصلي اغلب الاوقات{" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.prayer.always pray"
+                  )}
                 </MenuItem>
-                <MenuItem value=" اصلي بعض الاحيان ">
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.prayer.pray most of the time"
+                  )}
+                >
                   {" "}
-                  اصلي بعض الاحيان{" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.prayer.pray most of the time"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value=" لا أصلي "> لا أصلي </MenuItem>
-                <MenuItem value=" لا اجابه "> لا اجابه </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.prayer.pray sometimes"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.prayer.pray sometimes"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.prayer.never pray"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.prayer.never pray"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.prayer.no answer"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.religiousCommitment.options.prayer.no answer"
+                  )}{" "}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -384,7 +615,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                التدخين
+                {t("register-hus.religiousCommitment.labels.smoking")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -393,9 +624,22 @@ const RegisterًWife = () => {
                 name="smoking"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="yes"> نعم</MenuItem>
-                <MenuItem value="no"> لا</MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.smoking.yes"
+                  )}
+                >
+                  {" "}
+                  {t("register-hus.religiousCommitment.options.smoking.yes")}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.religiousCommitment.options.smoking.no"
+                  )}
+                >
+                  {" "}
+                  {t("register-hus.religiousCommitment.options.smoking.no")}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -403,31 +647,41 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                اللحية
+                hijab
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
                 id="demo-simple-select-filled"
-                value={payload.beard}
-                name="beard"
+                value={payload.hijab}
+                name="hijab"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="yes "> نعم</MenuItem>
-                <MenuItem value="no "> لا</MenuItem>
+                <MenuItem
+                  value="yes"
+                >
+                  {t("register-hus.religiousCommitment.options.beard.yes")}
+                </MenuItem>
+                <MenuItem
+                  value="no"
+                >
+                  {t("register-hus.religiousCommitment.options.beard.no")}
+                </MenuItem>
               </Select>
             </FormControl>
           </div>
           {/* ---------------------------6th form----------------------------  */}
 
           <div className="login-data form-child">
-            <p className="form-title"> الدراسه والعمل</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.health&education.titles.education")}
+            </p>
             <FormControl variant="filled" className="input">
               <InputLabel
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                المستوى التعليمي
+                {t("register-hus.health&education.titles.education")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -436,12 +690,56 @@ const RegisterًWife = () => {
                 name="education"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="دراسه اعداديه "> دراسه اعداديه</MenuItem>
-                <MenuItem value="دراسه ثانوية "> دراسه ثانوية</MenuItem>
-                <MenuItem value="دراسه جامعية"> دراسه جامعية</MenuItem>
-                <MenuItem value=" دكتوراه"> دكتوراه</MenuItem>
-                <MenuItem value=" دراسه ذاتية"> دراسه ذاتية</MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.education.Intermediate Studies"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.education.Intermediate Studies"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.education.High School Studies"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.education.High School Studies"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.education.University Studies"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.education.University Studies"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.education.Doctorate"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.education.Doctorate"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.education.Self-Study"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.education.Self-Study"
+                  )}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -449,7 +747,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                الوضع المادي
+                {t("register-hus.health&education.titles.financial_status")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -458,14 +756,76 @@ const RegisterًWife = () => {
                 name="physical_situation"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value="فقير "> فقير</MenuItem>
-                <MenuItem value="قريب من المتوسط "> قريب من المتوسط</MenuItem>
-                <MenuItem value="متوسط "> متوسط</MenuItem>
-                <MenuItem value="اكثر من المتوسط "> اكثر من المتوسط</MenuItem>
-                <MenuItem value=" جيد"> جيد </MenuItem>
-                <MenuItem value=" ميسور"> ميسور </MenuItem>
-                <MenuItem value="ثري "> ثري </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Poor"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Poor"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Near Average"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Near Average"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Average"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Average"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Above Average"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Above Average"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Good"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Good"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Well-Off"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Well-Off"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.financial_status.Wealthy"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.financial_status.Wealthy"
+                  )}{" "}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -473,7 +833,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                مجال العمل
+                {t("register-hus.health&education.titles.work_field")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -482,49 +842,199 @@ const RegisterًWife = () => {
                 name="work"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value=" بدوت عمل حاليا"> بدوت عمل حاليا</MenuItem>
-                <MenuItem value=" لا زلت ادرس "> لا زلت ادرس </MenuItem>
-                <MenuItem value=" سكرتارية "> سكرتارية </MenuItem>
-                <MenuItem value="  مجال الفن / الادب ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Currently Unemployed"
+                  )}
+                >
                   {" "}
-                  مجال الفن / الادب{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Currently Unemployed"
+                  )}
                 </MenuItem>
-                <MenuItem value=" الادارة "> الادارة </MenuItem>
-                <MenuItem value="مجال التجارة  "> مجال التجارة </MenuItem>
-                <MenuItem value="مجال الاغذية  "> مجال الاغذية </MenuItem>
-                <MenuItem value="مجال الانشاءات والبناء  ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Still Studying"
+                  )}
+                >
                   {" "}
-                  مجال الانشاءات والبناء{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Still Studying"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value=" مجال القانون  "> مجال القانون </MenuItem>
-                <MenuItem value=" مجال الطب"> مجال الطب</MenuItem>
-                <MenuItem value=" السياسه / الجكومة ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Secretarial"
+                  )}
+                >
                   {" "}
-                  السياسه / الجكومة{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Secretarial"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value=" متقاعد "> متقاعد </MenuItem>
-                <MenuItem value=" التسويق والمبيعات  ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Arts / Literature"
+                  )}
+                >
                   {" "}
-                  التسويق والمبيعات{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Arts / Literature"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value=" صاجب عمل خاص "> صاجب عمل خاص </MenuItem>
-                <MenuItem value=" مجال التدريس  "> مجال التدريس </MenuItem>
-                <MenuItem value=" مجال الهندسه / العلوم ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Administration"
+                  )}
+                >
                   {" "}
-                  مجال الهندسه / العلوم{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Administration"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value="  مجال النقل "> مجال النقل </MenuItem>
-                <MenuItem value="مجال الكمبيوتر او المعلوماتيه ">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Commerce"
+                  )}
+                >
                   {" "}
-                  مجال الكمبيوتر او المعلوماتيه{" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Commerce"
+                  )}{" "}
                 </MenuItem>
-                <MenuItem value=" شئ اخر "> شئ اخر </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Food Industry"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Food Industry"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Construction"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Construction"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Law"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Law"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Medicine"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Medicine"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Politics / Government"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Politics / Government"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Retired"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Retired"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Marketing and Sales"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Marketing and Sales"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Self-Employed"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Self-Employed"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Education"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Education"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Engineering / Science"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Engineering / Science"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Transportation"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Transportation"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Computer / IT"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.work_field.Computer / IT"
+                  )}{" "}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.work_field.Other"
+                  )}
+                >
+                  {" "}
+                  {t("register-hus.health&education.options.work_field.Other")}
+                </MenuItem>
               </Select>
             </FormControl>
             <TextField
               id="filled-basic"
-              label="الوظيفة "
+              label={t("register-hus.health&education.titles.job_title")}
               variant="filled"
               className="input"
               value={payload.career}
@@ -536,7 +1046,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                الدخل الشهري (جنيه)
+                {t("register-hus.health&education.titles.monthly_income")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -545,9 +1055,17 @@ const RegisterًWife = () => {
                 name="income"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value=" بدون"> بدون</MenuItem>
-                <MenuItem value="اقل من 500 "> اقل من 500</MenuItem>
+                {/* <MenuItem value=" without"> بدون</MenuItem> */}
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.monthly_income.less than 500"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.monthly_income.less than 500"
+                  )}{" "}
+                </MenuItem>
                 <MenuItem value=" 500-1000"> 500-1000 </MenuItem>
                 <MenuItem value=" 1000-3000"> 1000-3000</MenuItem>
                 <MenuItem value=" 3000-6000"> 3000-6000</MenuItem>
@@ -555,7 +1073,16 @@ const RegisterًWife = () => {
                 <MenuItem value="9000-12000 ">9000-12000 </MenuItem>
                 <MenuItem value=" 12000-16000"> 12000-16000</MenuItem>
                 <MenuItem value=" 16000-20000"> 16000-20000</MenuItem>
-                <MenuItem value=" اكثر من 20000"> اكثر من 20000</MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.monthly_income.more than 20000"
+                  )}
+                >
+                  {" "}
+                  {t(
+                    "register-hus.health&education.options.monthly_income.more than 20000"
+                  )}{" "}
+                </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -563,7 +1090,7 @@ const RegisterًWife = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                الحالة الصحية
+                {t("register-hus.health&education.titles.health_status")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
@@ -572,40 +1099,250 @@ const RegisterًWife = () => {
                 name="health_status"
                 onChange={(e) => handleInputChange(e)}
               >
-                <MenuItem value=""></MenuItem>
-                <MenuItem value=" بصحة جيده الحمدلله">
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Good Health"
+                  )}
+                >
                   {" "}
-                  بصحة جيده الحمدلله
+                  {t(
+                    "register-hus.health&education.options.health_status.Good Health"
+                  )}
                 </MenuItem>
-                <MenuItem value="اعاقه فكريه "> اعاقه فكريه</MenuItem>
-                <MenuItem value=" اعاقه حركيه"> اعاقه حركيه</MenuItem>
-                <MenuItem value="اكتئاب "> اكتئاب</MenuItem>
-                <MenuItem value="انحناء وتقوس "> انحناء وتقوس</MenuItem>
-                <MenuItem value=" انفصام شخصيه "> انفصام شخصيه </MenuItem>
-                <MenuItem value="باطنه "> باطنه </MenuItem>
-                <MenuItem value=" برص"> برص </MenuItem>
-                <MenuItem value=" بصرية">بصرية </MenuItem>
-                <MenuItem value="بهاء "> بهاء </MenuItem>
-                <MenuItem value=" جلدية"> جلدية </MenuItem>
-                <MenuItem value="  حروق مشوهة "> حروق مشوهة </MenuItem>
-                <MenuItem value="سكري "> سكري </MenuItem>
-                <MenuItem value="سمعيه "> سمعيه </MenuItem>
-                <MenuItem value="الكلام-النطق "> الكلام-النطق</MenuItem>
-                <MenuItem value="سمنه مفرطه  "> سمنه مفرطه </MenuItem>
-                <MenuItem value=" شلل اطفال "> شلل اطفال </MenuItem>
-                <MenuItem value=" شلل رباعي "> شلل رباعي </MenuItem>
-                <MenuItem value=" شلل نصفي "> شلل نصفي </MenuItem>
-                <MenuItem value=" صدفيه"> صدفيه</MenuItem>
-                <MenuItem value=" صرع"> صرع </MenuItem>
-                <MenuItem value=" عجز جنسي "> عجز جنسي </MenuItem>
-                <MenuItem value="عقم "> عقم </MenuItem>
-                <MenuItem value="فقدان طرف او عضو  ">
-                  {" "}
-                  فقدان طرف او عضو{" "}
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Intellectual Disability"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Intellectual Disability"
+                  )}
                 </MenuItem>
-                <MenuItem value="قزم "> قزم </MenuItem>
-                <MenuItem value=" متلازمه داون "> متلازمه داون </MenuItem>
-                <MenuItem value="نفسية "> نفسية </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Physical Disability"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Physical Disability"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Depression"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Depression"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Kyphosis and Lordosis"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Kyphosis and Lordosis"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Schizophrenia"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Schizophrenia"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Internal"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Internal"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Vitiligo"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Vitiligo"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Visual Impairment"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Visual Impairment"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Albinism"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Albinism"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Skin Conditions"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Skin Conditions"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Disfiguring Burns"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Disfiguring Burns"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Diabetes"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Diabetes"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Hearing Impairment"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Hearing Impairment"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Speech Impairment"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Speech Impairment"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Obesity"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Obesity"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Polio"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Polio"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Quadriplegia"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Quadriplegia"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Hemiplegia"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Hemiplegia"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Psoriasis"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Psoriasis"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Epilepsy"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Epilepsy"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Sexual Dysfunction"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Sexual Dysfunction"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Infertility"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Infertility"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Limb Loss"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Limb Loss"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Dwarfism"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Dwarfism"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Down Syndrome"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Down Syndrome"
+                  )}
+                </MenuItem>
+                <MenuItem
+                  value={t(
+                    "register-hus.health&education.options.health_status.Psychological"
+                  )}
+                >
+                  {t(
+                    "register-hus.health&education.options.health_status.Psychological"
+                  )}
+                </MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -614,11 +1351,11 @@ const RegisterًWife = () => {
           <div className="login-data form-child">
             <p className="form-title">
               {" "}
-              مواصفات شريك حياتك التي ترغب الإرتباط به{" "}
+              {t("register-hus.aboutYou.titles.partner_description")}{" "}
             </p>
             <TextField
               fullWidth
-              label="يرجى الكتابة بطريقة جادة و مهذبة"
+              label={t("register-hus.aboutYou.labels")}
               id="fullWidth"
               className="input input2"
               value={payload.description}
@@ -629,10 +1366,13 @@ const RegisterًWife = () => {
           {/* ---------------------------8th form----------------------------  */}
 
           <div className="login-data form-child">
-            <p className="form-title">تحدث عن نفسك</p>
+            <p className="form-title">
+              {" "}
+              {t("register-hus.aboutYou.titles.about_you")}
+            </p>
             <TextField
               fullWidth
-              label="يرجى الكتابة بطريقة جادة و مهذبة"
+              label={t("register-hus.aboutYou.labels")}
               id="fullWidth"
               className="input input2"
               value={payload.about_you}
@@ -642,7 +1382,7 @@ const RegisterًWife = () => {
           </div>
           {/* ----------------------end forms---------- */}
           <button className="about-btn" onClick={() => handleSubmit()}>
-            تأكيد
+            {t("register-hus.submit-btn")}
           </button>
         </div>
       </div>
@@ -650,4 +1390,4 @@ const RegisterًWife = () => {
   );
 };
 
-export default RegisterًWife;
+export default RegisterHus;

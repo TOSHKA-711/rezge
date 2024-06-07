@@ -1,0 +1,80 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+
+.profile {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+}
+.profile .container {
+  width: 60%;
+  max-width: 1140px;
+  max-height: 640px;
+  padding: 3rem 4rem;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.375);
+  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.profile .container .header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.profile .container .header .photo {
+  width: 7rem;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border: 2px solid var(--main-color);
+  padding: 5px;
+}
+.profile .container .header .photo:hover img {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.profile .container .header .photo img {
+  width: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: 0.6s all;
+  -webkit-transition: 0.6s all;
+  -moz-transition: 0.6s all;
+  -ms-transition: 0.6s all;
+  -o-transition: 0.6s all;
+}
+.profile .container .header .content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--main-color);
+}
+.profile .container .header .content .details div{
+  display: flex;
+align-items: center;
+justify-content: center;
+  color: var(--main-color);
+}
+.profile .container .header .content .details div{
+  display: flex;
+align-items: center;
+justify-content: center;
+  color: var(--main-color);
+}

@@ -87,15 +87,16 @@
     "lablel1": "البريد الالكتروني",
     "password": "كلمة المرور",
     "placeholder": "ادخل بريدك الالكتروني",
-    "submit" : "الدخول"
+    "submit": "الدخول"
   },
   "register-hus": {
-    "titles" : {
-"hus" : "التسجيل كزوج",
-"wife" : "التسجيل كزوجة"
+    "titles": {
+      "hus": "التسجيل كزوج",
+      "wife": "التسجيل كزوجة"
     },
     "loginData": {
       "labels": {
+        "title": "معلومات تسجيل الدخول",
         "username": "اسم المستخدم",
         "email": "البريد الالكتروني",
         "password": "كلمة المرور",
@@ -104,7 +105,7 @@
     },
     "statusData": {
       "labels": {
-        "marriageType": "نوع الزواك",
+        "marriageType": "نوع الزواج",
         "familyStatus": "الحاله الاجتماعيه",
         "age": "العمر",
         "childrenCount": "عدد الاطفال"
@@ -135,14 +136,16 @@
       }
     },
     "nationalityData": {
+      "title": "الجنسية والاقامة",
       "labels": {
         "residence": "مكان الاقامه",
         "city": "المدينه",
         "countryCode": "كود المنطقة",
-        "muslim": "muslim"
+        "muslim": "مسلم"
       }
     },
     "specifications": {
+      "title" : " مواصفاتك" ,
       "labels": {
         "weight": "الوزن (كج)",
         "height": "الطول (سم)",
@@ -284,6 +287,7 @@
         "about_you": "تحدث عن نفسك"
       },
       "labels": "يرجى الكتابة بطريقة جادة و مهذبة"
-    }
+    },
+    "submit-btn" : "تأكيد"
   }
 }

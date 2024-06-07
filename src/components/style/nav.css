@@ -223,4 +223,86 @@
   }
 }
 
-/* end nav bar  */
+/* login bar  */
+
+
+.nav-btns .icon {
+  font-size: 25px;
+
+}
+.nav-bar .container .nav-btns button {
+ font-weight: 900;
+}
+.nav-bar .container .nav-btns .notifications-icon {
+ font-size: 40px;
+ color: var(--main-color);
+ cursor: pointer;
+}
+.nav-bar .container .nav-btns .user-profile .user-icon {
+ font-size: 40px;
+ color: var(--main-color);
+ cursor: pointer;
+}
+.nav-bar .container .nav-btns .user-profile  {
+position: relative;
+}
+
+
+
+.nav-bar .container .nav-btns .user-profile .list{
+  list-style: none;
+  position: absolute;
+  background-color: #f6f6f6;
+  transform: translate(-85%, 100%);
+  -webkit-transform: translate(-85%, 100%);
+  -moz-transform: translate(-85%, 100%);
+  -ms-transform: translate(-85%, 100%);
+  -o-transform: translate(-85%, 100%);
+  display: none;
+  width: 150px;
+  bottom: -10px;
+  left: 50%;
+  padding: 0rem 2rem 0px 3rem;
+}
+.nav-bar .container .nav-btns .user-profile:hover .list{
+  display: block;
+}
+.nav-bar .container .nav-btns .user-profile .list::before{
+  content: "";
+  border: 10px;
+  border-style: solid;
+  border-color: transparent transparent #f6f6f6 transparent;
+  position: absolute;
+  right: 10%;
+  top: -20px;
+
+  
+
+}
+.nav-bar .container .nav-btns .user-profile .list li{
+ padding: 15px;
+ display: block;
+ transform:translate(-30px,0px) ;
+ -webkit-transform:translate(-30px,0px) ;
+ -moz-transform:translate(-30px,0px) ;
+ -ms-transform:translate(-30px,0px) ;
+ -o-transform:translate(-30px,0px) ;
+ z-index: 1;
+
+}
+.nav-bar .container .nav-btns .user-profile .list li a{
+ text-decoration: none;
+ color: var(--main-color);
+ transition:.5s ;
+ -webkit-transition:.5s ;
+ -moz-transition:.5s ;
+ -ms-transition:.5s ;
+ -o-transition:.5s ;
+}
+.nav-bar .container .nav-btns .user-profile .list li{
+ border-bottom: 1px solid #ddd;
+}
+.nav-bar .container .nav-btns .user-profile .list li:hover a{
+  padding-left: 15px;
+
+}

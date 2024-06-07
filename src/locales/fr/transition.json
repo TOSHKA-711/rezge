@@ -88,6 +88,7 @@
     },
     "loginData": {
       "labels": {
+        "title": "   Informations de connexion",
         "username": "Nom d'utilisateur",
         "email": "Email",
         "password": "Mot de Passe",
@@ -128,6 +129,7 @@
       }
     },
     "nationalityData": {
+      "title": "  Nationalité et résidence",
       "labels": {
         "residence": "Résidence",
         "city": "Ville",
@@ -136,6 +138,7 @@
       }
     },
     "specifications": {
+      "title" : " Vos spécifications" ,
       "labels": {
         "weight": "Poids (kg)",
         "height": "Taille (cm)",
@@ -276,6 +279,7 @@
         "about_you": "À Propos de Vous"
       },
       "labels": "Veuillez écrire sérieusement et poliment"
-    }
+    },
+    "submit-btn" : "Estar seguro"
   }
 }

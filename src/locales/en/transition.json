@@ -74,8 +74,7 @@
           "7": "Health Conditions"
         }
       },
-      "footer3" : "Start your marriage journey with confidence and certainty, with Rizqi Islamic Marriage, where hearts meet and souls intertwine"
-
+      "footer3": "Start your marriage journey with confidence and certainty, with Rizqi Islamic Marriage, where hearts meet and souls intertwine"
     }
   },
   "register": {
@@ -96,6 +95,7 @@
     },
     "loginData": {
       "labels": {
+        "title": "   Login Information",
         "username": "Username",
         "email": "Email",
         "password": "Password",
@@ -135,6 +135,7 @@
       }
     },
     "nationalityData": {
+      "title" : "  Nationality & Residency" ,
       "labels": {
         "residence": "Residence",
         "city": "City",
@@ -143,6 +144,7 @@
       }
     },
     "specifications": {
+      "title" : "Your Specifications " ,
       "labels": {
         "weight": "Weight (kg)",
         "height": "Height (cm)",
@@ -284,6 +286,7 @@
         "about_you": "About You"
       },
       "labels": "Please write seriously and politely"
-    }
+    },
+    "submit-btn" : "confirmation"
   }
 }
