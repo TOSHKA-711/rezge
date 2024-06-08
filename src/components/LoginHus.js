@@ -8,11 +8,12 @@ import { useTranslation } from "react-i18next";
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import { MyContext } from "../contextApi/MyProvider";
-
+import { useNavigate } from "react-router-dom";
 
 
 const LoginHus = () => {
   const { loginState, setLoginState } = useContext(MyContext);
+  const navigation = useNavigate();
   
   const { t, i18n } = useTranslation();
   const [payload, setPayload] = useState({
@@ -36,10 +37,10 @@ const LoginHus = () => {
     axios
     .post(url, payload)
     .then((response) => {
-      console.log("Response:", response.data);
-      alert(response.data.message)
+      // console.log("Response:", response.data);
+      // alert(response.data.message)
+      navigation("/")
       setLoginState(true)
-      window.open("/" , "_self")
     
     })
     .catch(error => {

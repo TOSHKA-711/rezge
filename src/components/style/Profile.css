@@ -3,78 +3,257 @@
   --second-color: #8b58a9;
 }
 
-.profile {
+.gradient-custom-2 {
   width: 100vw;
+  /* fallback for old browsers */
+  background: #fbc2eb;
+  
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, #764095, rgba(166, 193, 238, 1));
+  
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #764095, #fff)
+  }
+
+  .gradient-custom-2 {
+    background-color: #9de2ff;
+  }
+  
+  .container-custom {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    height: 100%;
+  }
+  
+  .row-custom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .col-custom {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+  .card-custom {
+    border-radius: 15px;
+  }
+  
+  .card-header-custom {
+    background-color: #000;
+    height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .card-header-content {
+    margin-left: 1rem;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+  }
+  
+  .img-thumbnail-custom {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 150px;
+    border-radius: 0.25rem;
+    z-index: 1;
+  }
+  
+  .btn-custom {
+    height: 36px;
+    overflow: visible;
+    border: 1px solid #000;
+    background: none;
+    color: #000;
+  }
+  
+  .btn-custom:hover {
+    background-color: #000;
+    color: white;
+  }
+  
+  .card-body-custom {
+    background-color: #f8f9fa;
+    padding: 1rem;
+  }
+  
+  .stats-custom {
+    display: flex;
+    justify-content: flex-end;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .stats-item {
+    margin-right: 1.5rem;
+  }
+  
+  .card-content-custom {
+    padding: 1rem;
+  }
+  
+  .about-custom {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .photos-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .photos-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .photos-col {
+    flex: 1;
+  }
+  
+  .img-custom {
+    width: 100%;
+    border-radius: 0.25rem;
+  }
+  
+  /* -------------------------- */
+
+  .col-custom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col-custom .card {
+  width: 100%;
+  height: unset;
+  background: #f4f6fb;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+  direction: rtl;
+}
+
+.card-header-custom {
+  background-color: var(--main-color);
+  height: 200px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 0 0rem;
+}
+
+.header-name{
+  font-size: 20px;
+}
+
+.about-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+}
+.about-btn:hover {
+  background: none;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.gradient-custom-2 {
+  background-color: #9de2ff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10rem;
-  margin-bottom: 5rem;
+  margin-top: 4rem;
 }
-.profile .container {
-  width: 60%;
-  max-width: 1140px;
-  max-height: 640px;
-  padding: 3rem 4rem;
+p.lead.fw-normal.mb-1 {
+  font-size: 25px;
+  font-weight: 700;
+}
+p.card-text.mb-1.h5 {
+  color: var(--main-color);
+  font-size: 20px;
+}
+p.card-text.small.text-muted.mb-0 {
+  font-size: 25px;
+  font-weight: 600;
+}
+.row-custom {
   display: flex;
+  justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.375);
-  box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-  border-radius: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+  height: 100%;
+  width: 70%;
 }
-.profile .container .header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 2rem;
-}
-.profile .container .header .photo {
-  width: 7rem;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  border: 2px solid var(--main-color);
-  padding: 5px;
-}
-.profile .container .header .photo:hover img {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
-.profile .container .header .photo img {
-  width: 100%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-  transition: 0.6s all;
-  -webkit-transition: 0.6s all;
-  -moz-transition: 0.6s all;
-  -ms-transition: 0.6s all;
-  -o-transition: 0.6s all;
-}
-.profile .container .header .content {
+
+
+.about-custom {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  color: var(--main-color);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
 }
-.profile .container .header .content .details div{
+.div-flex {
   display: flex;
-align-items: center;
-justify-content: center;
-  color: var(--main-color);
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
-.profile .container .header .content .details div{
+
+.stats-item.body-item {
+  margin-right: 1.5rem;
   display: flex;
-align-items: center;
-justify-content: center;
-  color: var(--main-color);
+  flex-direction: column;
+  align-items: center;
+  width: 15rem;
+}
+
+
+
+@media screen and (max-width:730px) {
+  .row-custom {
+    width: 100%;
+}
+}
+@media screen and (max-width:500px) {
+  .row-custom {
+    width: 100%;
+}
+.stats-custom {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 0 1rem;
+  gap: 1rem;
+}
 }

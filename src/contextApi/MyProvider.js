@@ -4,7 +4,7 @@ const MyContext = React.createContext();
 
 const MyProvider = ({ children }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("AR");
-  const [loginState, setLoginState] = useState(true);
+  const [loginState, setLoginState] = useState(false);
 
   return (
     <MyContext.Provider value={{ selectedLanguage, setSelectedLanguage ,loginState,setLoginState}}>

@@ -123,9 +123,7 @@ a {
 }
 
 @media only screen and (max-width: 840px) {
-  body {
-    padding: 1.5rem;
-  }
+
 
   .overlay {
     padding: 4rem;

@@ -15,6 +15,8 @@ import { MyContext } from "../contextApi/MyProvider";
 import { AiFillSketchCircle } from "react-icons/ai";
 import { FaUserCircle } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
+import { FaRegUser } from "react-icons/fa";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,6 +48,12 @@ const Nav = () => {
     i18n.changeLanguage("fr");
     setSelectedLanguage("FR");
   };
+
+ const handleLogOut =()=>{
+  window.open("/rezge/" , "_self")
+  setLoginState(false)
+ }
+
 
   return !loginState ? (
     <nav className="nav">
@@ -151,17 +159,13 @@ const Nav = () => {
               <FaUserCircle className="user-icon" />
               <ul class="list">
                 <li>
-                  <a href="#services">Services</a>
+                  <Link to="/profile">profile  <FaRegUser className="logout-icon"/> </Link>
                 </li>
-                <li>
-                  <a href="#portfolio">Portfolio</a>
+                <li onClick={()=>{handleLogOut()}}>
+                  <Link to="/" >logout  <IoIosLogOut className="logout-icon"  /> </Link>
+                  
                 </li>
-                <li>
-                  <a href="#about">About</a>
-                </li>
-                <li>
-                  <a href="#contact">Contact</a>
-                </li>
+           
               </ul>
             </Link>
             <Link to="">
