@@ -8,10 +8,10 @@ import transitionFr from "./locales/fr/transition.json";
 
 const resources = {
   en: {
-    translation: transitionAr,
+    translation: transitionEn,
   },
   ar: {
-    translation: transitionEn,
+    translation: transitionAr,
   },
   fr: {
     translation: transitionFr,

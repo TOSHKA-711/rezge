@@ -20,13 +20,13 @@ const RegisterHus = () => {
     phone: "",
     password: "",
     password_confirmation: "",
-    type_marriage: 1,
-    family_status:1,
+    type_marriage: "",
+    family_status:"",
     age: 25,
     number_children: 1,
     accommodation: "",
     country_id: 57,
-    city: "",
+    "city_id": 1,
     weight: 100,
     length: 180,
     skin_color: "",
@@ -171,13 +171,15 @@ const RegisterHus = () => {
                 onChange={(e) => handleInputChange(e)}
               >
                 <MenuItem
-                  value= {1}
+                  value=     {t("register-hus.statusData.options.marriageType.first wife")}
                 >
                   {" "}
                   {t("register-hus.statusData.options.marriageType.first wife")}
                 </MenuItem>
                 <MenuItem
-                  value={2}
+                  value=  {t(
+                    "register-hus.statusData.options.marriageType.second wife"
+                  )}
                 >
                   {" "}
                   {t(
@@ -201,17 +203,17 @@ const RegisterHus = () => {
                 onChange={(e) => handleInputChange(e)}
               >
                 <MenuItem
-                  value={1}
+                  value= {t("register-hus.statusData.options.familyStatus.single")}
                 >
                   {t("register-hus.statusData.options.familyStatus.single")}
                 </MenuItem>
                 <MenuItem
-                  value={2}
+                  value={t("register-hus.statusData.options.familyStatus.divorced")}
                 >
                   {t("register-hus.statusData.options.familyStatus.divorced")}
                 </MenuItem>
                 <MenuItem
-                  value={3}
+                  value={t("register-hus.statusData.options.familyStatus.widowed")}
                 >
                   {t("register-hus.statusData.options.familyStatus.widowed")}
                 </MenuItem>
@@ -296,12 +298,12 @@ const RegisterHus = () => {
             </FormControl>
             <TextField
               id="filled-basic"
-              label={t("register-hus.nationalityData.labels.city")}
+              label="city_id"
               variant="filled"
               className="input"
               required
-              value={payload.city}
-              name="city"
+              value={payload.city_id}
+              name="city_id"
               onChange={(e) => handleInputChange(e)}
             />
             <TextField

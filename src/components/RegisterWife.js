@@ -14,35 +14,35 @@ const RegisterHus = () => {
   const { selectedLanguage, setSelectedLanguage } = useContext(MyContext);
 
   const [payload, setPayload] = useState({
-    "name": "",
-    "nickname": "",
-    "email": "",
-    "phone": "",
-    "password": "",
-    "password_confirmation": "",
-    "type_marriage": 2,
-    "family_status": 2,
-    "age": 25,
-    "number_children": 1,
-    "accommodation": "",
-    "country_id": 57,
-    "city": " ",
-    "weight": 100,
-    "length": 180,
-    "skin_color": "",
-    "body_structure": "",
-    "smoking": "",
-    "religiosity": "",
-    "prayer": "",
-    "hijab": "",     //no
-    "education": "",
-    "physical_situation": "",
-    "work": "",
-    "career": "",
-    "income": "",
-    "health_status": "",
-    "description": "",
-    "about_you": ""
+    name: "",
+    nickname: "",
+    email: "",
+    phone: "",
+    password: "",
+    password_confirmation: "",
+    type_marriage: "",
+    family_status:"",
+    age: 25,
+    number_children: 1,
+    accommodation: "",
+    country_id: 57,
+    "city_id": 1,
+    weight: 100,
+    length: 180,
+    skin_color: "",
+    body_structure: "",
+    smoking: "no",
+    religiosity: "",
+    prayer: "",
+    beard: "",
+    education: "",
+    physical_situation: "",
+    work: "",
+    career: "",
+    income: "",
+    health_status: "",
+    description: "",
+    about_you: "",
   });
 
   //   handle countries api
@@ -70,7 +70,6 @@ const RegisterHus = () => {
       .post(url, payload)
       .then((response) => {
         console.log("Response:", response.data);
-        alert(response.data.message)
       
       })
       .catch(error => {
@@ -172,13 +171,15 @@ const RegisterHus = () => {
                 onChange={(e) => handleInputChange(e)}
               >
                 <MenuItem
-                  value= {1}
+                  value=     {t("register-hus.statusData.options.marriageType.first wife")}
                 >
                   {" "}
                   {t("register-hus.statusData.options.marriageType.first wife")}
                 </MenuItem>
                 <MenuItem
-                  value={2}
+                  value=  {t(
+                    "register-hus.statusData.options.marriageType.second wife"
+                  )}
                 >
                   {" "}
                   {t(
@@ -202,17 +203,17 @@ const RegisterHus = () => {
                 onChange={(e) => handleInputChange(e)}
               >
                 <MenuItem
-                  value={1}
+                  value= {t("register-hus.statusData.options.familyStatus.single")}
                 >
                   {t("register-hus.statusData.options.familyStatus.single")}
                 </MenuItem>
                 <MenuItem
-                  value={2}
+                  value={t("register-hus.statusData.options.familyStatus.divorced")}
                 >
                   {t("register-hus.statusData.options.familyStatus.divorced")}
                 </MenuItem>
                 <MenuItem
-                  value={3}
+                  value={t("register-hus.statusData.options.familyStatus.widowed")}
                 >
                   {t("register-hus.statusData.options.familyStatus.widowed")}
                 </MenuItem>
@@ -297,12 +298,12 @@ const RegisterHus = () => {
             </FormControl>
             <TextField
               id="filled-basic"
-              label={t("register-hus.nationalityData.labels.city")}
+              label="city_id"
               variant="filled"
               className="input"
               required
-              value={payload.city}
-              name="city"
+              value={payload.city_id}
+              name="city_id"
               onChange={(e) => handleInputChange(e)}
             />
             <TextField
@@ -647,22 +648,24 @@ const RegisterHus = () => {
                 id="demo-simple-select-filled-label "
                 className="select-label"
               >
-                hijab
+                {t("register-hus.religiousCommitment.labels.beard")}
               </InputLabel>
               <Select
                 labelId="demo-simple-select-filled-label"
                 id="demo-simple-select-filled"
-                value={payload.hijab}
-                name="hijab"
+                value={payload.beard}
+                name="beard"
                 onChange={(e) => handleInputChange(e)}
               >
                 <MenuItem
-                  value="yes"
+                  value={t(
+                    "register-hus.religiousCommitment.options.beard.yes"
+                  )}
                 >
                   {t("register-hus.religiousCommitment.options.beard.yes")}
                 </MenuItem>
                 <MenuItem
-                  value="no"
+                  value={t("register-hus.religiousCommitment.options.beard.no")}
                 >
                   {t("register-hus.religiousCommitment.options.beard.no")}
                 </MenuItem>
