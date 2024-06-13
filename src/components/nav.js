@@ -175,7 +175,7 @@ const Nav = () => {
                   </ul>
                 </div>
                 <Link to="">
-                  <Button variant="contained" className="nav-btn">
+                  <Button variant="contained" className="nav-btn pay-btn">
                     <AiFillSketchCircle className="icon" /> باقة التميز
                   </Button>
                 </Link>
@@ -183,19 +183,33 @@ const Nav = () => {
             )}
           </div>
         </div>
-
+        {/* -------------- toggle layer ----------------- */}
         <div className={`nav-toggle-layer ${isMenuOpen ? "open" : ""}`}>
           <Link to="/">
             <a>{t("nav.home")}</a>
           </Link>
-          <Link to="/register">
-            <button className="about-btn">{t("nav.subscribe")}</button>
-          </Link>
-          <Link to="">
-            <Button variant="contained" className="nav-btn">
-              <AiFillSketchCircle className="icon" /> باقة التميز
-            </Button>
-          </Link>
+          <div className="nav-btns">
+            {!loginState ? (
+              <>
+                <Link to="/login">
+                  <Button variant="contained" className="nav-btn">
+                    {t("nav.login")}
+                  </Button>
+                </Link>
+                <Link to="/register">
+                  <button className="about-btn">{t("nav.subscribe")}</button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="">
+                  <Button variant="contained" className="nav-btn">
+                    <AiFillSketchCircle className="icon" /> باقة التميز
+                  </Button>
+                </Link>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>

@@ -90,7 +90,9 @@
       "labels": {
         "title": "   Informations de connexion",
         "username": "Nom d'utilisateur",
+        "nickname": "Surnom",
         "email": "Email",
+        "phone": "Numéro de téléphone",
         "password": "Mot de Passe",
         "confirmPassword": "Confirmer le Mot de Passe",
         "submit": "Connexion"
@@ -281,5 +283,35 @@
       "labels": "Veuillez écrire sérieusement et poliment"
     },
     "submit-btn" : "Estar seguro"
+  }, "profile": {
+    "edit_profile": "Modifier",
+    "ID": "ID",
+    "Age": "Âge",
+    "Status": "Statut",
+    "familial_status": {
+      "familial_status": "Situation familiale",
+      "children_number": "Nombre d'enfants",
+      "Marriage_type": "Type de mariage",
+      "Prayer" : "oraciones" 
+    },
+    "looks": {
+      "title": "Apparence et santé",
+      "Body_shape": "Forme du corps",
+      "KG / CM": "KG / CM",
+      "Skin color": "Couleur de la peau",
+      "Smoking": "Fumeur",
+      "Health status": "État de santé",
+      "Beard": "Barbe"
+    },
+    "Education_and_work": {
+      "title": "Éducation et travail",
+      "Educational": "Éducation",
+      "Job": "Emploi",
+      "Monthly income (egp)": "Revenu mensuel (EGP)"
+    },
+    "about_me": {
+      "me": "À propos de moi",
+      "partner": "À propos de mon partenaire"
+    }
   }
 }

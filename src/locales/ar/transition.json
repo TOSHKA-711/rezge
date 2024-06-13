@@ -98,6 +98,8 @@
       "labels": {
         "title": "معلومات تسجيل الدخول",
         "username": "اسم المستخدم",
+        "nickname": " الاسم المستعار",
+        "phone": "رقم الهاتف",
         "email": "البريد الالكتروني",
         "password": "كلمة المرور",
         "confirmPassword": "تأكيد كلمة المرور"
@@ -289,5 +291,38 @@
       "labels": "يرجى الكتابة بطريقة جادة و مهذبة"
     },
     "submit-btn" : "تأكيد"
+  },
+  "profile" :{
+    "edit_profile": " تعديل الملف" ,
+    "ID": " ID " ,
+    "Age": " العمر" ,
+    "Status": " الحالة" ,
+    "familial_status" : {
+      "familial_status" : "الوضع العائلي" ,
+      "children_number" : " عدد الاطفال" ,
+      "Marriage_type" : " نوع الزواج " ,
+      "Prayer" : "صلاة" 
+     
+    },
+    "looks" : {
+      "title" : "المظهر والصحة",
+      "Body_shape" : "شكل الجسم",
+      "KG / CM":"كجم/سم",
+      "Skin color":"لون البشرة",
+      "Smoking":"التدخين",
+      "Health status":"الحالة الصحية",
+      "Beard":"لحية"
+     },
+     "Education_and_work":{
+      "title" :"التعليم والعمل",
+      "Educational":"التعليمية",
+      "Job":"وظيفة",
+      "Monthly income (egp)":"الدخل الشهري (egp)"
+     },
+     "about_me":{
+      "me" :" معلومات عني",
+      "partner":"معلومات عن شريكي "
+
+     }
   }
 }

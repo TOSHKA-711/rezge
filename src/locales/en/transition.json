@@ -97,6 +97,8 @@
       "labels": {
         "title": "   Login Information",
         "username": "Username",
+        "nickname": "Nickname",
+        "phone": "Phone number",
         "email": "Email",
         "password": "Password",
         "confirmPassword": "Confirm Password"
@@ -288,5 +290,36 @@
       "labels": "Please write seriously and politely"
     },
     "submit-btn" : "confirmation"
+  }, "profile": {
+    "edit_profile": "Edit profile",
+    "ID": "ID",
+    "Age": "Age",
+    "Status": "Status",
+    "familial_status": {
+      "familial_status": "Familial status",
+      "children_number": "Number of children",
+      "Marriage_type": "Marriage type",
+      "Prayer" : "Prayer" 
+    },
+    "looks": {
+      "title": "Appearance and health",
+      "Body_shape": "Body shape",
+      "KG / CM": "KG / CM",
+      "Skin color": "Skin color",
+      "Smoking": "Smoking",
+      "Health status": "Health status",
+      "Beard": "Beard"
+    },
+    "Education_and_work": {
+      "title": "Education and work",
+      "Educational": "Educational",
+      "Job": "Job",
+      "Monthly income (egp)": "Monthly income (EGP)"
+    },
+    "about_me": {
+      "me": "About me",
+      "partner": "About my partner"
+    }
   }
+  
 }

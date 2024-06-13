@@ -8,7 +8,9 @@ import Select from "@mui/material/Select";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { MyContext } from "../contextApi/MyProvider";
-const RegisterHus = () => {
+import { useNavigate } from "react-router-dom";
+const RegisterWife = () => {
+  const navigation = useNavigate();
   const { t, i18n } = useTranslation();
   const [countries, setCountries] = useState([]);
   const { selectedLanguage, setSelectedLanguage } = useContext(MyContext);
@@ -70,6 +72,7 @@ const RegisterHus = () => {
       .post(url, payload)
       .then((response) => {
         console.log("Response:", response.data);
+        navigation("/login");
       
       })
       .catch(error => {
@@ -104,7 +107,7 @@ const RegisterHus = () => {
             />
             <TextField
               id="filled-basic"
-              label="الاسم المستعار"
+              label={t("register-hus.loginData.labels.nickname")}
               variant="filled"
               className="input"
               name="nickname"
@@ -122,7 +125,7 @@ const RegisterHus = () => {
             />
             <TextField
               id="filled-basic"
-              label="رقم الهاتف"
+              label={t("register-hus.loginData.labels.phone")}
               variant="filled"
               className="input"
               name="phone"
@@ -1059,16 +1062,7 @@ const RegisterHus = () => {
                 onChange={(e) => handleInputChange(e)}
               >
                 {/* <MenuItem value=" without"> بدون</MenuItem> */}
-                <MenuItem
-                  value={t(
-                    "register-hus.health&education.options.monthly_income.less than 500"
-                  )}
-                >
-                  {" "}
-                  {t(
-                    "register-hus.health&education.options.monthly_income.less than 500"
-                  )}{" "}
-                </MenuItem>
+                <MenuItem value=" -500"> -500</MenuItem>
                 <MenuItem value=" 500-1000"> 500-1000 </MenuItem>
                 <MenuItem value=" 1000-3000"> 1000-3000</MenuItem>
                 <MenuItem value=" 3000-6000"> 3000-6000</MenuItem>
@@ -1076,16 +1070,7 @@ const RegisterHus = () => {
                 <MenuItem value="9000-12000 ">9000-12000 </MenuItem>
                 <MenuItem value=" 12000-16000"> 12000-16000</MenuItem>
                 <MenuItem value=" 16000-20000"> 16000-20000</MenuItem>
-                <MenuItem
-                  value={t(
-                    "register-hus.health&education.options.monthly_income.more than 20000"
-                  )}
-                >
-                  {" "}
-                  {t(
-                    "register-hus.health&education.options.monthly_income.more than 20000"
-                  )}{" "}
-                </MenuItem>
+                <MenuItem value="  +20000"> +20000 </MenuItem>
               </Select>
             </FormControl>
             <FormControl variant="filled" className="input">
@@ -1393,4 +1378,4 @@ const RegisterHus = () => {
   );
 };
 
-export default RegisterHus;
+export default RegisterWife;

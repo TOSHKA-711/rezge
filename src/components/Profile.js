@@ -15,10 +15,12 @@ import { Link } from "react-router-dom";
 import { FaPray } from "react-icons/fa";
 import profileImg from "../imgs/man avatar.png";
 import { MyContext } from "../contextApi/MyProvider";
+import { useTranslation } from "react-i18next";
 import { use } from "i18next";
 
 export default function EditButton() {
   const { userData, setUserData } = useContext(MyContext);
+  const { t } = useTranslation();
   // console.log(userData);
 
   return (
@@ -36,7 +38,7 @@ export default function EditButton() {
                     fluid
                   />
                   <Link to="/updateProfile">
-                    <button className="about-btn">Edit profile</button>
+                    <button className="about-btn">{t("profile.edit_profile")}</button>
                   </Link>
                 </div>
                 <div style={{ marginLeft: "1rem", marginTop: "8rem" }}>
@@ -51,7 +53,7 @@ export default function EditButton() {
                   <div className="stats-item">
                     <MDBCardText className="mb-1 h5">{userData.id}</MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
-                      ID
+                    {t("profile.ID")}
                     </MDBCardText>
                   </div>
                   <div className="stats-item">
@@ -59,7 +61,7 @@ export default function EditButton() {
                       {userData.age}
                     </MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
-                      Age
+                    {t("profile.Age")}
                     </MDBCardText>
                   </div>
                   <div className="stats-item">
@@ -67,21 +69,21 @@ export default function EditButton() {
                       {userData.family_status}
                     </MDBCardText>
                     <MDBCardText className="small text-muted mb-0">
-                      Status
+                    {t("profile.Status")}
                     </MDBCardText>
                   </div>
                 </div>
               </div>
               <MDBCardBody className="card-content-custom">
                 <div className="about-custom">
-                  <p className="lead fw-normal mb-1">familial status</p>
+                  <p className="lead fw-normal mb-1">{t("profile.familial_status.familial_status")}</p>
                   <div className="div-flex">
                     <div className="stats-item body-item">
                       <MDBCardText className="mb-1 h5">
                         {userData.number_children}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        children number
+                      {t("profile.familial_status.children_number")}
                       </MDBCardText>
                     </div>
                     <div className="stats-item body-item">
@@ -89,7 +91,7 @@ export default function EditButton() {
                         {userData.type_marriage}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Marriage type
+                      {t("profile.familial_status.Marriage_type")}
                       </MDBCardText>
                     </div>
                     <div className="stats-item body-item">
@@ -97,28 +99,29 @@ export default function EditButton() {
                         {userData.husband_info.prayer}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Prayer
+                        {t("profile.familial_status.Prayer")}
                       </MDBCardText>
                     </div>
                   </div>
                 </div>
                 <div className="about-custom">
-                  <p className="lead fw-normal mb-1">Looks and health</p>
+                  <p className="lead fw-normal mb-1">{t("profile.looks.title")}</p>
                   <div className="div-flex">
                     <div className="stats-item body-item">
                       <MDBCardText className="mb-1 h5">
                         {userData.husband_info.skin_color}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Skin color
+                      {t("profile.looks.Skin color")}
                       </MDBCardText>
                     </div>
                     <div className="stats-item body-item">
-                      <MDBCardText className="mb-1 h5">{userData.husband_info
-.weight} / {userData.husband_info
-.length}</MDBCardText>
+                      <MDBCardText className="mb-1 h5">
+                        {userData.husband_info.weight} /{" "}
+                        {userData.husband_info.length}
+                      </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        KG / CM
+                      {t("profile.looks.KG / CM")}
                       </MDBCardText>
                     </div>
                     <div className="stats-item body-item">
@@ -126,25 +129,25 @@ export default function EditButton() {
                         {userData.husband_info.body_structure}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Body shape
+                      {t("profile.looks.Body_shape")}
                       </MDBCardText>
                     </div>
                   </div>
                   <div className="div-flex">
-                    <div className="stats-item body-item">
+                    {/* <div className="stats-item body-item">
                       <MDBCardText className="mb-1 h5">
                         {userData.husband_info.beard}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
                         Beard
                       </MDBCardText>
-                    </div>
+                    </div> */}
                     <div className="stats-item body-item">
                       <MDBCardText className="mb-1 h5">
                         {userData.husband_info.health_status}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Health status
+                      {t("profile.looks.Health status")}
                       </MDBCardText>
                     </div>
                     <div className="stats-item body-item">
@@ -152,20 +155,20 @@ export default function EditButton() {
                         {userData.husband_info.smoking}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Smoking
+                      {t("profile.looks.Smoking")}
                       </MDBCardText>
                     </div>
                   </div>
                 </div>
                 <div className="about-custom">
-                  <p className="lead fw-normal mb-1">Education and work</p>
+                  <p className="lead fw-normal mb-1">{t("profile.Education_and_work.title")}</p>
                   <div className="div-flex">
                     <div className="stats-item body-item">
                       <MDBCardText className="mb-1 h5">
                         {userData.husband_info.education}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Educational
+                      {t("profile.Education_and_work.Educational")}
                       </MDBCardText>
                     </div>
                     {/* <div className="stats-item body-item">
@@ -181,7 +184,7 @@ export default function EditButton() {
                         {userData.husband_info.career}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Job
+                      {t("profile.Education_and_work.Job")}
                       </MDBCardText>
                     </div>
                   </div>
@@ -191,7 +194,7 @@ export default function EditButton() {
                         {userData.husband_info.income}
                       </MDBCardText>
                       <MDBCardText className="small text-muted mb-0">
-                        Monthly income (egp)
+                      {t("profile.Education_and_work.Monthly income (egp)")}
                       </MDBCardText>
                     </div>
                     {/* <div className="stats-item body-item">
@@ -205,7 +208,7 @@ export default function EditButton() {
                   </div>
                 </div>
                 <div className="about-custom">
-                  <p className="lead fw-normal mb-1">About me</p>
+                  <p className="lead fw-normal mb-1">{t("profile.about_me.me")}</p>
                   <div className="div-flex">
                     <div className="stats-item body-item">
                       <MDBCardText className="small text-muted mb-0">
@@ -215,7 +218,7 @@ export default function EditButton() {
                   </div>
                 </div>
                 <div className="about-custom">
-                  <p className="lead fw-normal mb-1">About my partner</p>
+                  <p className="lead fw-normal mb-1">{t("profile.about_me.partner")}</p>
                   <div className="div-flex">
                     <div className="stats-item body-item">
                       <MDBCardText className="small text-muted mb-0">
