@@ -1,0 +1,32 @@
+/* src/App.css or src/index.css */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 170%);
+}
+
+.pagination button {
+  margin: 0 5px;
+  padding: 7px 12px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  background-color: var(--main-color);
+  transition: 0.3s all;
+  -webkit-transition: 0.3s all;
+  -moz-transition: 0.3s all;
+  -ms-transition: 0.3s all;
+  -o-transition: 0.3s all;
+}
+
+.pagination .active {
+  font-weight: bold;
+  text-decoration: underline;
+  padding: 7px 25px;
+  cursor: pointer;
+  font-size: 18px;
+}

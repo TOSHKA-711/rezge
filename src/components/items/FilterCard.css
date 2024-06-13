@@ -1,0 +1,154 @@
+:root {
+  --main-color: #764095;
+  --second-color: #8b58a9;
+}
+
+.card-item {
+  /* background-color: #fff; */
+  background-color: #fbfbfb;;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  margin: 10px auto;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.flag {
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.card-body {
+  margin: 20px 0;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+}
+
+.status-indicator {
+  background-color: green;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 0;
+  right: 40%;
+  border: 2px solid white;
+}
+
+.age-location {
+  display: block;
+  margin-top: 10px;
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.info-text {
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.message-button,
+.like-button {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 35px;
+  cursor: pointer;
+  margin: 5px;
+  font-size: 25px;
+}
+
+.message-button:hover,
+.like-button:hover {
+  background-color: var(--second-color);
+}
+
+.like-button {
+  background-color: #ff4757;
+}
+
+.like-button:hover {
+  background-color: #e84342;
+}
+
+/* @media (max-width: 768px) {
+  .card-item {
+    max-width: 90%;
+  }
+
+  .card-header,
+  .card-info,
+  .card-footer {
+    flex-direction: column;
+  }
+
+  .info-item,
+  .message-button,
+  .like-button {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .username {
+    font-size: 16px;
+  }
+
+  .age-location {
+    font-size: 12px;
+  }
+
+  .icon {
+    font-size: 14px;
+  }
+
+  .message-button,
+  .like-button {
+    padding: 8px;
+  }
+} */

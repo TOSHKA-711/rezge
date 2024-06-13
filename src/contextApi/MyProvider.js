@@ -5,6 +5,9 @@ const MyContext = React.createContext();
 const MyProvider = ({ children }) => {
   const [selectedLanguage, setSelectedLanguage] = useState("AR");
   const [loginState, setLoginState] = useState(false);
+  const [token, setToken] = useState("");
+  const [filterResponse, setFilterResponse] = useState([]);
+  const [notificationsCount, setNotificationsCount] = useState();
   const [userData, setUserData] = useState({
     id: 0,
     name: "",
@@ -39,6 +42,12 @@ const MyProvider = ({ children }) => {
         setLoginState,
         userData,
         setUserData,
+        token,
+        setToken,
+        notificationsCount,
+        setNotificationsCount,
+        filterResponse,
+        setFilterResponse,
       }}
     >
       {children}

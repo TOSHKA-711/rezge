@@ -11,10 +11,12 @@ import { MyContext } from "../contextApi/MyProvider";
 import { useNavigate } from "react-router-dom";
 
 const LoginHus = () => {
+  const navigation = useNavigate();
+  const { token, setToken } = useContext(MyContext);
   const { loginState, setLoginState } = useContext(MyContext);
   const { userData, setUserData } = useContext(MyContext);
+  const { notificationsCount, setNotificationsCount } = useContext(MyContext);
 
-  const navigation = useNavigate();
 
   const { t, i18n } = useTranslation();
   const [payload, setPayload] = useState({
@@ -33,25 +35,23 @@ const LoginHus = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(payload);
-    const url = "https://rezge.art-lms.net/api/husband/login";
+    const url = "http://back.rezge.com/api/husband/login";
 
     axios
       .post(url, payload)
       .then((response) => {
         let profileData = response.data.user;
         setUserData(profileData);
+        setToken(response.data.token);
 
         setLoginState(true);
 
-        navigation("/");
+        navigation("/profile");
       })
       .catch((error) => {
         console.error("There was an error logging in!", error);
       });
   };
-
-  console.log( "user data :", userData);
-
 
   return (
     <>

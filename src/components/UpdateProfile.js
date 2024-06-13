@@ -9,42 +9,42 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 import { MyContext } from "../contextApi/MyProvider";
 import { useNavigate } from "react-router-dom";
-const RegisterHus = () => {
+const UpdataProfile = () => {
   const navigation = useNavigate();
   const { t, i18n } = useTranslation();
   const [countries, setCountries] = useState([]);
-  const { selectedLanguage, setSelectedLanguage } = useContext(MyContext);
-
+  const { selectedLanguage, setSelectedLanguage ,token} = useContext(MyContext);
+  const { userData, setUserData } = useContext(MyContext);
   const [payload, setPayload] = useState({
-    name: "",
-    nickname: "",
-    email: "",
-    phone: "",
-    password: "",
-    password_confirmation: "",
-    type_marriage: "",
-    family_status:"",
-    age: 25,
-    number_children: 1,
-    accommodation: "",
-    country_id: 57,
-    "city_id": 1,
-    weight: 100,
-    length: 180,
-    skin_color: "",
-    body_structure: "",
-    smoking: "no",
-    religiosity: "",
-    prayer: "",
-    beard: "",
-    education: "",
-    physical_situation: "",
-    work: "",
-    career: "",
-    income: "",
-    health_status: "",
-    description: "",
-    about_you: "",
+    name: userData.name,
+    nickname: userData.nickname,
+    email: userData.email,
+    phone: userData.phone,
+    password: userData.password,
+    password_confirmation: userData.password,
+    type_marriage: userData.type_marriage,
+    family_status:userData. family_status,
+    age: userData.age,
+    number_children:userData.number_children,
+    accommodation: userData.accommodation,
+    country_id: userData.country_id,
+    "city_id":userData.city_id,
+    weight: userData.husband_info.weight,
+    length: userData.husband_info.length,
+    skin_color: userData.husband_info.skin_color,
+    body_structure: userData.husband_info.body_structure,
+    smoking: userData.husband_info.smoking,
+    religiosity: userData.husband_info.religiosity,
+    prayer: userData.husband_info.prayer,
+    beard: userData.husband_info.beard,
+    education: userData.husband_info.education,
+    physical_situation: userData.husband_info.physical_situation,
+    work: userData.husband_info.work,
+    career: userData.husband_info.career,
+    income: userData.husband_info.income,
+    health_status: userData.husband_info.health_status,
+    description: userData.husband_info.description,
+    about_you: userData.husband_info.about_you,
   });
 
   //   handle countries api
@@ -66,10 +66,14 @@ const RegisterHus = () => {
   };
   const handleSubmit = () => {
     console.log(payload);
-    const url = "http://back.rezge.com/api/husband/register";
+    const url = `http://back.rezge.com/api/husband/update/${userData.id}`;
 
     axios
-      .post(url, payload)
+      .put(url, payload, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((response) => {
         console.log("Response:", response.data);
         navigation("/login");
@@ -87,7 +91,7 @@ const RegisterHus = () => {
   return (
     <div className="register-hus">
       <div className="container">
-        <div className="title"> {t("register-hus.titles.hus")}</div>
+        <div className="title"> edit profile data </div>
         <div className="form">
           {/* ---------------------------first form----------------------------  */}
 
@@ -1396,4 +1400,4 @@ const RegisterHus = () => {
   );
 };
 
-export default RegisterHus;
+export default UpdataProfile;

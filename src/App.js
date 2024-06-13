@@ -13,6 +13,10 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import ChatApp from "./components/ChatApp";
 import PaymentForm from "./components/PaymentForm";
+import Notification from "./components/items/Notification";
+import FilterCard from "./components/items/FilterCard";
+import FilterResults from "./components/FilterResults";
+import UpdataProfile from "./components/UpdateProfile";
 function App() {
   return (
     <div className="App ">
@@ -29,10 +33,12 @@ function App() {
           <Route path="/registerWife" element={<RegisterWife />} />
           <Route path="/profile" element={<Profile/>} />
           <Route path="/payment" element={<PaymentForm/>} />
-          {/* <Route path="/chat" element={<ChatApp/>} /> */}
+          <Route path="/filterResult" element={<FilterResults/>} />
+          <Route path="/updateProfile" element={<UpdataProfile/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
+     {/* <FilterCard/> */}
     </div>
   );
 }

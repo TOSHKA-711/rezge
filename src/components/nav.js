@@ -19,12 +19,22 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { IoIosLogOut } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import Notification from "./items/Notification";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { selectedLanguage, setSelectedLanguage, loginState, setLoginState } =
-    useContext(MyContext);
+  const {
+    selectedLanguage,
+    setSelectedLanguage,
+    loginState,
+    setLoginState,
+    token,
+    setToken,
+    notificationsCount,
+    setNotificationsCount,
+  } = useContext(MyContext);
   const [notifications, setNotifications] = useState([]);
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   // handle toggle navbar
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -50,20 +60,30 @@ const Nav = () => {
     window.location.href = "/rezge/";
   };
 
-  // handle get notifications
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true); // Start loading
       try {
         const response = await axios.get(
-          "https://rezge.art-lms.net/api/notifications/user"
+          "http://back.rezge.com/api/notifications/user",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
-        setNotifications(response.data);
+        setNotifications(response.data.notifications);
+        setNotificationsCount(response.data.count);
+        console.log(response.data);
       } catch (error) {
         console.log(error.message);
+      } finally {
+        setLoading(false); // End loading
       }
     };
+
     fetchData();
-  }, []);
+  }, [token]); // Add token to dependency array
 
   return (
     <nav className="nav">
@@ -116,12 +136,28 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link>
+                <Link className="notifications">
                   {notifications.length === 0 ? (
                     <IoMdNotificationsOutline className="notifications-icon empty" />
                   ) : (
                     <MdOutlineNotificationsActive className="notifications-icon !empty" />
                   )}
+                  <div className="notifications-count">
+                    {notificationsCount}
+                  </div>
+                  <div className="notifications-bar">
+                    {notifications.map((item) => {
+                      return (
+                        <Notification
+                          className="notif-child"
+                          key={item.notifiable_id}
+                          sender={item.data.sender_name}
+                        />
+                      );
+                    })}
+
+                    {/* <Notification className="notif-child" sender="tooshka" /> */}
+                  </div>
                 </Link>
                 <div className="user-profile">
                   <FaUserCircle className="user-icon" />
@@ -154,6 +190,11 @@ const Nav = () => {
           </Link>
           <Link to="/register">
             <button className="about-btn">{t("nav.subscribe")}</button>
+          </Link>
+          <Link to="">
+            <Button variant="contained" className="nav-btn">
+              <AiFillSketchCircle className="icon" /> باقة التميز
+            </Button>
           </Link>
         </div>
       </div>

@@ -54,7 +54,7 @@
 }
 .nav-toggle-layer.open {
   width: 50vw;
-  opacity: 0.6;
+  opacity: 0.8;
 }
 .nav-toggle-layer a {
   font-size: 1.5rem;
@@ -199,12 +199,37 @@
   color: #fff;
 }
 
+.nav-toggle-layer a .nav-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--main-color);
+  background: none;
+  border: 2px solid var(--main-color);
+  padding: 4px 30px;
+  border-radius: 5px;
+  transition: all 0.6s;
+  font-size: 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.nav-toggle-layer a .nav-btn:hover {
+  background: var(--main-color);
+  border: 2px solid var(--main-color);
+  color: #fff;
+}
+
+
+
 @media screen and (max-width: 1000px) {
   .nav-bar .container .nav-links {
     display: none;
   }
 
   .nav-bar .container .nav-btns a .about-btn {
+    display: none;
+  }
+  .nav-bar .container .nav-btns a .nav-btn {
     display: none;
   }
   .nav-toggle-links {
@@ -299,4 +324,71 @@
   font-size: 20px;
   color: var(--main-color);
   margin: 5px;
+}
+
+
+/* --------- handle notifications icon ------- */
+
+a.notifications {
+  position: relative;
+}
+.notifications-count {
+  position: absolute;
+  left: -11px;
+  top: -10px;
+  background-color: var(--main-color);
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a.notifications .notifications-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #5a5a5a;
+ 
+  /*height: 20rem;
+  */transform: translate(-50%, 5%);
+  -webkit-transform: translate(-50%, 5%);
+  -moz-transform: translate(-50%, 5%);
+  -ms-transform: translate(-50%, 5%);
+  -o-transform: translate(-50%, 5%);
+  z-index: 100;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 0;
+  overflow-y: scroll;
+  /* display: none; */
+  gap: 5px;
+  transition:0.3s all ;
+  -webkit-transition:0.3s all ;
+  -moz-transition:0.3s all ;
+  -ms-transition:0.3s all ;
+  -o-transition:0.3s all ;
+  opacity: 0;
+  max-height: 0rem;
+  width: 15rem;
+}
+a.notifications .notifications-bar .notif-child{
+  width: 200px;
+  height: 40px;
+}
+
+a.notifications:hover .notifications-bar{
+  opacity: 1;
+  max-height: 20rem;
+
+  /* padding: 5px 0; */
+
 }

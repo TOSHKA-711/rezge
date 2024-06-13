@@ -35,7 +35,7 @@ export default function EditButton() {
                     className="img-thumbnail-custom"
                     fluid
                   />
-                  <Link to="/register">
+                  <Link to="/updateProfile">
                     <button className="about-btn">Edit profile</button>
                   </Link>
                 </div>

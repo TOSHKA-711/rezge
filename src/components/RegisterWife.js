@@ -64,7 +64,7 @@ const RegisterHus = () => {
   };
   const handleSubmit = () => {
     console.log(payload);
-    const url = "https://rezge.art-lms.net/api/wife/register";
+    const url = "http://back.rezge.com/api/wife/register";
 
     axios
       .post(url, payload)
