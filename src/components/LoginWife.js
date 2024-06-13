@@ -33,7 +33,7 @@ const LoginWife = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(payload);
-    const url = "http://back.rezge.com/api/wife/login";
+    const url = "https://back.rezge.com/api/wife/login";
 
     axios
       .post(url, payload)

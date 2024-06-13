@@ -17,7 +17,6 @@ const LoginHus = () => {
   const { userData, setUserData } = useContext(MyContext);
   const { notificationsCount, setNotificationsCount } = useContext(MyContext);
 
-
   const { t, i18n } = useTranslation();
   const [payload, setPayload] = useState({
     email: "",
@@ -35,7 +34,8 @@ const LoginHus = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(payload);
-    const url = "http://back.rezge.com/api/husband/login";
+    const url = "https://back.rezge.com/api/husband/login";
+
 
     axios
       .post(url, payload)

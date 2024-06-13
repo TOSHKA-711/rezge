@@ -64,7 +64,7 @@ const RegisterHus = () => {
   };
   const handleSubmit = () => {
     console.log(payload);
-    const url = "http://back.rezge.com/api/wife/register";
+    const url = "https://back.rezge.com/api/wife/register";
 
     axios
       .post(url, payload)

@@ -65,7 +65,7 @@ const Nav = () => {
       setLoading(true); // Start loading
       try {
         const response = await axios.get(
-          "http://back.rezge.com/api/notifications/user",
+          "https://back.rezge.com/api/notifications/user",
           {
             headers: {
               Authorization: `Bearer ${token}`,

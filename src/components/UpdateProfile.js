@@ -66,7 +66,7 @@ const UpdataProfile = () => {
   };
   const handleSubmit = () => {
     console.log(payload);
-    const url = `http://back.rezge.com/api/husband/update/${userData.id}`;
+    const url = `https://back.rezge.com/api/husband/update/${userData.id}`;
 
     axios
       .put(url, payload, {

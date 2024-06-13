@@ -22,7 +22,7 @@ function App() {
     <div className="App ">
       <BrowserRouter basename="/rezge">
         <Nav />
-        <ChatApp/>
+        {/* <ChatApp/> */}
         <Routes>
           <Route path="/" index element={<Home />} />
           <Route path="/login" element={<Login/>} />

@@ -77,8 +77,8 @@ const SearchForm = () => {
   const handleSubmit = () => {
     const url = `${
       active === true
-        ? "http://back.rezge.com/api/filter/husband"
-        : "http://back.rezge.com/api/filter/wife"
+        ? "https://back.rezge.com/api/filter/husband"
+        : "https://back.rezge.com/api/filter/wife"
     }  `;
 
     axios
